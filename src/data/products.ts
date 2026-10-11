@@ -35,7 +35,7 @@ export const COMPANY_INFO = {
   phoneAlt: '+91 72176 81647',
   email: 'oneethicalpharmaceutical@gmail.com',
   formspreeUrl: 'https://formsubmit.co/ajax/oneethicalpharmaceutical@gmail.com',
-  logo: '/one_assets/logo.jpg'
+  logo: '/one_assets/logo-transparent.png'
 };
 
 export const CATEGORIES: Record<string, Category> = {

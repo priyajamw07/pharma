@@ -75,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               alt={COMPANY_INFO.name}
               className="navbar-logo-img"
             />
-            <span className="brand-title">{COMPANY_INFO.name}</span>
+            <span className="sr-only">{COMPANY_INFO.name}</span>
           </a>
 
           {/* Desktop Navigation Links in ONE line */}

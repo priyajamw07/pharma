@@ -11,8 +11,6 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
     name: '',
     mobile: '',
     email: '',
-    fieldOfInterest: 'Healthcare Product Distribution',
-    experience: '1-3 Years',
     message: ''
   });
   const [submitting, setSubmitting] = useState(false);
@@ -37,8 +35,6 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
           name: formData.name,
           mobile: formData.mobile,
           email: formData.email,
-          fieldOfInterest: formData.fieldOfInterest,
-          experience: formData.experience,
           message: formData.message,
           _subject: `Career Profile Submission: ${formData.name} (${formData.mobile})`,
           company: COMPANY_INFO.name
@@ -49,13 +45,13 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
         setSubmitted(true);
       } else {
         const subject = encodeURIComponent(`Career Profile Submission: ${formData.name}`);
-        const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nField: ${formData.fieldOfInterest}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
         window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
       }
     } catch {
       const subject = encodeURIComponent(`Career Profile Submission: ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nField: ${formData.fieldOfInterest}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
       window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitted(true);
     } finally {
@@ -137,7 +133,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     Thank you, {formData.name}. Your details have been received at <strong>{COMPANY_INFO.email}</strong>. We will contact you when suitable opportunities arise.
                   </p>
                   <button
-                    onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', fieldOfInterest: 'Healthcare Product Distribution', experience: '1-3 Years', message: '' }); }}
+                    onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', message: '' }); }}
                     className="hero-btn-primary"
                     style={{ marginTop: '18px', fontSize: '13px', padding: '8px 20px' }}
                   >
@@ -170,7 +166,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                       placeholder="Your 10-digit Mobile Number"
                       maxLength={10}
                       value={formData.mobile}
-                      onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, '') })}
+                      onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\\D/g, '') })}
                       required
                     />
                   </div>
@@ -190,34 +186,6 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <div className="form-group">
-                    <label>Area of Interest</label>
-                    <select
-                      className="form-control"
-                      value={formData.fieldOfInterest}
-                      onChange={(e) => setFormData({ ...formData, fieldOfInterest: e.target.value })}
-                    >
-                      <option value="Healthcare Product Distribution">Healthcare Product Distribution</option>
-                      <option value="Hospital & Chemist Outreach">Hospital & Chemist Outreach</option>
-                      <option value="Logistics & Dispatch Coordination">Logistics & Dispatch Coordination</option>
-                      <option value="General Healthcare Operations">General Healthcare Operations</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
-                    <label>Experience Level</label>
-                    <select
-                      className="form-control"
-                      value={formData.experience}
-                      onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    >
-                      <option value="Fresher / < 1 Year">Fresher / &lt; 1 Year</option>
-                      <option value="1-3 Years">1-3 Years</option>
-                      <option value="3-5 Years">3-5 Years</option>
-                      <option value="5+ Years">5+ Years</option>
-                    </select>
-                  </div>
-
-                  <div className="form-group">
                     <label>Brief Introduction / Notes</label>
                     <textarea
                       className="form-control"
@@ -225,19 +193,24 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                       placeholder="Share brief notes on your background or field experience..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    ></textarea>
+                    />
                   </div>
 
                   <button
                     type="submit"
                     className="hero-btn-primary"
-                    style={{ width: '100%', justifyContent: 'center' }}
                     disabled={submitting}
+                    style={{ width: '100%', justifyContent: 'center' }}
                   >
-                    <span>
-                      {submitting ? 'Submitting Details...' : 'Submit Profile'}
-                      <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i>
-                    </span>
+                    {submitting ? (
+                      <>
+                        <i className="fa-solid fa-spinner fa-spin"></i> Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <i className="fa-solid fa-paper-plane"></i> Submit Application Profile
+                      </>
+                    )}
                   </button>
                 </form>
               )}

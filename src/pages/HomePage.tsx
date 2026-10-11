@@ -73,13 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
 
   return (
     <main className="page-home-wrapper">
@@ -208,25 +202,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Quick Slider Arrow Controls for Accessible Navigation */}
-          <div className="slider-arrows-wrap">
-            <button
-              className="slider-nav-arrow arrow-prev"
-              onClick={handlePrevSlide}
-              aria-label="Previous Slide"
-              title="Previous Slide"
-            >
-              <i className="fa-solid fa-arrow-left"></i>
-            </button>
-            <button
-              className="slider-nav-arrow arrow-next"
-              onClick={handleNextSlide}
-              aria-label="Next Slide"
-              title="Next Slide"
-            >
-              <i className="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+          
         </div>
       </section>
 
@@ -300,7 +276,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <div className="about-visual-column">
               <div className="about-image-card">
                 <img
-                  src="/assets/images/about.png"
+                  src="/assets/images/about-facility.jpg"
                   alt="ONE Ethical Pharmaceutical Delivery Fleet & Sourcing"
                   className="about-hero-img"
                 />
@@ -353,11 +329,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     alt={prod.name}
                     className="product-uncropped-img"
                   />
-                  <div className="product-hover-overlay">
-                    <span className="overlay-btn-text">
-                      <i className="fa-solid fa-eye"></i> View Full Details
-                    </span>
-                  </div>
                 </div>
 
                 <div className="product-card-body">
