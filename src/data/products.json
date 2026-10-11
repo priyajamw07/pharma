@@ -1,0 +1,143 @@
+{
+  "categories": {
+    "gastro": {
+      "name": "GASTRO",
+      "image": "/uploads/admin/category/janura-d3-box-syrup1702304275.png",
+      "desc": "Gastroenterology healthcare formulations and treatments"
+    },
+    "gynae": {
+      "name": "GYNAE",
+      "image": "/uploads/admin/category/janoheme1702304321.png",
+      "desc": "Gynecological healthcare solutions for women wellness"
+    },
+    "ortho": {
+      "name": "ORTHO",
+      "image": "/uploads/admin/category/jancumin-xt1702304367.png",
+      "desc": "Orthopedic joint support, pain relief and bone health formulations"
+    },
+    "general-care": {
+      "name": "GENERAL CARE",
+      "image": "/uploads/admin/category/janolizer1702304399.png",
+      "desc": "Comprehensive everyday health care, syrups and immune boosters"
+    }
+  },
+  "products": [
+    {
+      "id": "boswelix-tablet",
+      "slug": "boswelix-tablet",
+      "name": "BOSWELIX TABLET",
+      "image": "/uploads/admin/product/boswelix1724931508.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><p>Boswelix Tablet is a joint support suppliment with Rosehip, Devil's claw, Boswellia, Sodium Hyaluronate with Curcuma Longa and Piper Nigrum, Which can help in the improvement of joint flexibility and provide relief fron pain. It can be useful in Osteoarthritis, Rheumatoid arthritis and other joint pains and has no side effects.</p>\r\n\r\n<p>It helps strengthen the bones, reduces joint pain and maintains the integrity of the joints.</p>\r\n\r\n<p><strong>Key Benifits</strong></p>\r\n\r\n<p><strong>Rosehip Extract</strong> reduces pain and stiffness and improve function in people with Osteoarthritic Pain after surgery and also helps in promoting collagen biosynthesis.</p>\r\n\r\n<p><strong>Boswellia Serrata</strong> decrease swelling and increase the body’s immune response and reduce pain and improve movement in people with Osteoarthritis also Provide safe and natural pain relief.</p>\r\n\r\n<p><strong>Sodium Hyaluronate</strong> relief in joint pain by keeping bones well lubricated.</p>\r\n\r\n<p><strong>Devil’s Claw Extract</strong> used in treatment for tendonitis, Osteoarthritis (OA) or Rheumatoid Arthritis (RA) and reduces back pain and also reduce COX 2 activity and inflammation.</p>\r\n\r\n<p><strong>Piperine</strong> has anti inflammatory Antinociceptive and Antiarthritic effect.</p>\r\n\r\n<p><strong>Curcumin e</strong>xert anti inflammatory effect by inhibiting COX 1 and COX 2 and prevent cartilage degradation.</p>\r\n\r\n<p><strong>Direction for use :</strong> Take Boswelix tablet as directed by the physician.</p></p>"
+    },
+    {
+      "id": "branch-hep-sachet",
+      "slug": "branch-hep-sachet",
+      "name": "BRANCH-HEP SACHET",
+      "image": "/uploads/admin/product/branch-hep1724928233.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><p>Branch-Hep sugar free sachet contains Essential Amino Acids which help to keep liver healthy. These Amino Acids work by increasing the production of certain chemicals in the body that improve blood flow to the muscles by widening the blood vassels and helping in improving the growth of the muscles. It can also regulate various cellular processes such as Protein synthesis, Tissue regeneration and metabolism.</p>\r\n\r\n<p>Branch-Hep boosts the energy level and assists the body in recovering from strenuous physical activity.</p></p>"
+    },
+    {
+      "id": "fe-knock-syrup",
+      "slug": "fe-knock-syrup",
+      "name": "Fe Knock Syrup",
+      "image": "/uploads/admin/product/fe-knock-box1702305507.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Fe Knock Syrup contains Ferrous Ascorbate, which is essential for the proper growth and functioning of the body. It helps in the management of nutritional deficiency anemia related to iron and during pregnancy and lactation.</li>\r\n <li> Folic acid is essential to numerous bodily functions ranging from nucleotide biosynthesis to the remethylation of homocysteine. It is especially important during periods of rapid cell division and growth. Both children and adults require folic acid to produce healthy red blood cells and prevent anemia. </li>\r\n  <li>Zinc is a trace mineral that is involved in numerous enzymatic reactions in the body. It plays a key role in immune function, wound healing, and DNA synthesis</li>\r\n</ul></p>"
+    },
+    {
+      "id": "jancumin-oral-suspension",
+      "slug": "jancumin-oral-suspension",
+      "name": "Jancumin Oral Suspension",
+      "image": "/uploads/admin/product/jancumin-transparent1702305350.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Jancumin Oral Suspension contains blend of various vitamins, including vitamin A, vitamin B6, vitamin B12, vitamin D, vitamin C, Folic Acid, and Multiminerals including Zinc, Copper and various Essential Amino Acids as major ingredients.</li>\r\n <li>Jancumin Oral Suspension is a balanced nutrition for good health and growth of the body.</li>\r\n  <li>The consumption of this suspension supplement can help to prevent deficiencies of vitamins and minerals and it improves growth of the body.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "jancumin-xt",
+      "slug": "jancumin-xt",
+      "name": "Jancumin-XT",
+      "image": "/uploads/admin/product/jancumin-xt1702305328.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n  <li>Comprises CoQ10, vitamin C and turmeric curcumin, a potent herbal ingredient rich in medicinal properties that helps the body fight against viral replication. It stimulates the immune system, Repairs blood cells, supports bones and tissues.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "janoheme-tablet",
+      "slug": "janoheme-tablet",
+      "name": "Janoheme Tablet",
+      "image": "/uploads/admin/product/janoheme1702305400.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Janoheme Tablet contains iron, which is an important element for blood formation in the body, which acts as a medium of oxygen transportation from the lungs to all the tissues in the body with the help of RBCs. It also helps to normalize the red blood cells in the body, thus help to prevent Anemia.</li>\r\n <li>Janoheme Composition</li>\r\n <li>Elemental Iron (Heme Iron Polypeptide)-12 mg</li>\r\n</ul></p>"
+    },
+    {
+      "id": "janolizer-100-ml",
+      "slug": "janolizer-100-ml",
+      "name": "JANOLIZER 100 ml",
+      "image": "/uploads/admin/product/janolizer1702305318.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n  <li>Janolizer oral solution is a urine alkalizer. It works by increasing the pH of urine which makes it less acidic. This helps the kidneys get rid of excess uric acid, thereby preventing gout and certain types of kidney stones.</li>\r\n <li>Janolizer is available in vanilla flavor.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "janoril-cough-syrup",
+      "slug": "janoril-cough-syrup",
+      "name": "Janoril Cough Syrup",
+      "image": "/uploads/admin/product/janoril1702305459.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Janoril Expectorant Sugar Free contains three active medicines. Each ingredient present in this medicine plays a pivotal role. Terbutaline is a bronchodilator that relaxes and widens the muscles in the airways. Guaifenesin is an expectorant that decreases the stickiness of the mucus and helps in its removal from the airways. Ambroxol is a mucolytic that thins and loosens mucus (phlegm), making it easier to cough out.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "janoril-dx",
+      "slug": "janoril-dx",
+      "name": "Janoril DX",
+      "image": "/uploads/admin/product/janoril-dx1702305442.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n  <li>Janoril DX Syrup Sugar Free is a combination of three medicines: Phenylephrine, Chlorpheniramine Maleate and Dextromethorphan Hydrobromide, which relieves dry cough. Phenylephrine is a decongestant which narrows the small blood vessels providing relief from congestion or stuffiness in the nose. Dextromethorphan Hydrobromide is a cough suppressant that relieves cough by reducing the activity of cough center in the brain. Chlorpheniramine Maleate is an antiallergic which relieves allergy symptoms like runny nose, watery eyes and sneezing.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "janura-d3-nano-shot",
+      "slug": "janura-d3-nano-shot",
+      "name": "Janura D3 Nano Shot",
+      "image": "/uploads/admin/product/janura-d3-box-syrup1702305303.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n  <li>Janura D3 60000 IU Vitamin D3 Oral Solution, Helps Keep Bones Healthy, Aids in Boosting Immunity, Sugar-Free</li>\r\n <li>It is a vitamin D3 oral solution that promotes your overall health and well-being. Vitamin D (Cholecalciferol) is a fat-soluble vitamin that helps the body fight against infections and supports a healthy immune system. It plays a vital role in developing and maintaining healthy bones and assists with the absorption of calcium, magnesium, and phosphorus.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "nimexo-q",
+      "slug": "nimexo-q",
+      "name": "Nimexo-Q",
+      "image": "/uploads/admin/product/nimex-q1780032290.jpeg",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><p>Nimexo-Q Softgel Capsule helps maintain overall health by supporting various body functions. Coenzyme Q10 plays a key role in energy production and protects cells from damage. L-arginine helps improve blood flow by relaxing blood vessels. Omega-3 fatty acids support the body&#39;s normal functions by helping reduce inflammation. Selenium acts as an antioxidant, protecting cells and supporting the immune system. Together, these nutrients help fulfill nutritional needs and contribute to overall well-being</p>\r\n\r\n<p>Nimexo-Q Softgel Capsule is a prescription medicine that has a combination of medicines that are used in the treatment of nutritional deficiencies. It provides essential nutrients for the proper functioning and growth of the body.</p>\r\n\r\n<p>Nimexo-Q Softgel Capsule may be taken with or without food. It should be used in the dose and duration as prescribed by your doctor. It is advised to take this medicine at a fixed time. This medicine should not be taken more than the recommended dose.</p>\r\n\r\n<p>.</p>\r\n\r\n<p> </p></p>"
+    },
+    {
+      "id": "raporz-d",
+      "slug": "raporz-d",
+      "name": "Raporz D",
+      "image": "/uploads/admin/product/raporz-d1702305290.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Raporz D is the combination of Rabeprazole 20mg and Domperidone 30mg. Which is used to treat gastroesophageal reflux disease (Acid Reflux).</li>\r\n  <li>Rabeprazole is a proton pump inhibitor (PPI) which works by reducing the amount of acid in stomach which helps in the relief of acid-related indigestion and heartburn.</li>\r\n</ul></p>"
+    },
+    {
+      "id": "respiro-m",
+      "slug": "respiro-m",
+      "name": "Respiro-M",
+      "image": "/uploads/admin/product/respiro-m1702305279.png",
+      "categoryId": "gastro",
+      "categoryName": "GASTRO",
+      "descriptionHtml": "<p><ul>\r\n <li>Respiro-M is the combination of two medicines anti-histamine (Levocetirizine) and anti-leukotriene (Montelukast). Which relieves sneezing and runny nose due to allergies.</li>\r\n <li>Respiro-M tablet is effecting in the treatment of allergic skin conditions with inflammation and itching.</li>\r\n</ul></p>"
+    }
+  ]
+}
