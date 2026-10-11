@@ -3146,3 +3146,382 @@ button {
 .form-card:hover {
   box-shadow: 0 12px 36px rgba(0, 71, 187, 0.08) !important;
 }
+
+
+/* =========================================================
+   COMPREHENSIVE MASTER MOBILE RESPONSIVE STYLESHEET
+   Optimized for 320px, 360px, 375px, 390px, 430px, 768px
+========================================================= */
+
+/* Prevent any horizontal page scroll */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base mobile container padding */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* 1. HEADER: HIDE CLUTTERED TOP BAR ON MOBILE */
+  .header-top-bar {
+    display: none !important;
+  }
+
+  .navbar-main {
+    padding: 10px 0 !important;
+  }
+
+  .navbar-inner {
+    padding: 0 !important;
+  }
+
+  .navbar-logo-img {
+    height: 40px !important;
+    max-width: 160px !important;
+  }
+
+  .mobile-hamburger-btn {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #f8fafc !important;
+    color: #0047bb !important;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+  }
+
+  /* 2. MOBILE DRAWER: CLEAN, AIRY, TOUCH-FRIENDLY */
+  .mobile-nav-drawer {
+    width: 320px !important;
+    max-width: 86vw !important;
+  }
+
+  .mobile-drawer-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 16px 18px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    background: #ffffff !important;
+  }
+
+  .drawer-logo-img {
+    max-height: 38px !important;
+    max-width: 160px !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+
+  .mobile-drawer-close-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: #f1f5f9 !important;
+    border: none !important;
+    color: #334155 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+  }
+
+  .mobile-nav-link {
+    padding: 14px 20px !important;
+    font-size: 15.5px !important;
+    font-weight: 600 !important;
+  }
+
+  /* 3. HERO SLIDER ON MOBILE: NO OVERLAPPING PLUS ICON, CENTERED TYPOGRAPHY */
+  .slider-plus-icon-wrap {
+    display: none !important;
+  }
+
+  .main-slider-section {
+    padding: 24px 0 44px 0 !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .main-slide-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+
+  .slider-text-column {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 4px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .slider-eyebrow-pill {
+    margin: 0 auto 14px auto !important;
+    font-size: 11.5px !important;
+    padding: 5px 12px !important;
+    width: fit-content !important;
+  }
+
+  .slider-reference-heading {
+    font-size: clamp(24px, 6.5vw, 34px) !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin-bottom: 14px !important;
+  }
+
+  .heading-dark-line,
+  .heading-mixed-line,
+  .heading-color-line {
+    display: block !important;
+    text-align: center !important;
+  }
+
+  .slider-subtext-des {
+    font-size: 13.5px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    margin: 0 auto 20px auto !important;
+    padding: 0 !important;
+  }
+
+  .slider-btn-div {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+    margin-bottom: 20px !important;
+  }
+
+  .slider-contact-btn,
+  .slider-secondary-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 18px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
+
+  .slider-trust-chips {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+
+  .trust-chip {
+    font-size: 11.5px !important;
+    padding: 4px 10px !important;
+  }
+
+  .slider-visual-column {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 10px !important;
+  }
+
+  .slider-visual-centerpiece {
+    min-height: 260px !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+  }
+
+  .slider-subject-cutout-img {
+    max-height: 260px !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+
+  .dots-icon {
+    display: none !important;
+  }
+
+  .slider-waves-container {
+    width: 260px !important;
+    height: 260px !important;
+  }
+
+  .slider-item-nav {
+    position: static !important;
+    margin-top: 20px !important;
+    display: flex !important;
+    justify-content: center !important;
+    transform: none !important;
+  }
+
+  .vertical-capsule-track {
+    flex-direction: row !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    gap: 10px !important;
+  }
+
+  .capsule-dot-item {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .capsule-dot-item.active {
+    width: 24px !important;
+    height: 10px !important;
+    border-radius: 5px !important;
+  }
+
+  /* 4. PRODUCT CARDS ON MOBILE: FULL-WIDTH CLEAN CARDS */
+  .products-four-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .product-card-elevated,
+  .product-card-modern {
+    border-radius: 16px !important;
+  }
+
+  .product-img-frame {
+    height: 190px !important;
+    padding: 12px !important;
+  }
+
+  .product-uncropped-img {
+    max-height: 160px !important;
+  }
+
+  .product-card-body {
+    padding: 16px 14px !important;
+    gap: 10px !important;
+  }
+
+  .product-card-title {
+    font-size: 16.5px !important;
+  }
+
+  .product-card-short-desc {
+    font-size: 13px !important;
+    min-height: auto !important;
+  }
+
+  .product-card-actions {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 8px !important;
+  }
+
+  .btn-card-view,
+  .btn-card-call-order {
+    padding: 11px 12px !important;
+    font-size: 12.5px !important;
+    border-radius: 8px !important;
+  }
+
+  /* 5. WHY CHOOSE SECTION ON MOBILE */
+  .why-choose-four-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .why-card {
+    padding: 22px 18px !important;
+  }
+
+  /* 6. ABOUT SECTION ON MOBILE */
+  .about-split-layout {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .about-hero-img,
+  .hero-real-doctor-image {
+    height: 240px !important;
+    border-radius: 14px !important;
+  }
+
+  .about-metrics-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .metric-box {
+    padding: 14px 16px !important;
+  }
+
+  /* 7. ORDER CALLOUT SECTION ON MOBILE */
+  .order-callout-section {
+    padding: 44px 0 !important;
+  }
+
+  .order-callout-inner {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  .order-callout-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .btn-product-order-call,
+  .btn-product-order-online {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* 8. CONTACT & CAREER FORMS ON MOBILE */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .contact-info-card,
+  .form-card {
+    padding: 22px 18px !important;
+    border-radius: 14px !important;
+  }
+
+  /* 9. BREADCRUMB ON MOBILE */
+  .page-title-section {
+    padding: 28px 0 !important;
+  }
+
+  .page-main-heading {
+    font-size: 24px !important;
+  }
+
+  /* 10. FOOTER ON MOBILE */
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center !important;
+  }
+}

@@ -167,14 +167,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
       {/* Mobile Slide-in Drawer */}
       <aside className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`} aria-hidden={!mobileMenuOpen}>
         <div className="mobile-drawer-header">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img
-              src={COMPANY_INFO.logo}
-              alt={COMPANY_INFO.name}
-              style={{ maxHeight: '38px', borderRadius: '4px' }}
-            />
-            <span style={{ fontSize: '13px', fontWeight: 700, color: '#0047bb' }}>ONE ETHICAL</span>
-          </div>
+          <img
+            src={COMPANY_INFO.logo}
+            alt={COMPANY_INFO.name}
+            className="drawer-logo-img"
+          />
           <button
             className="mobile-drawer-close-btn"
             onClick={() => setMobileMenuOpen(false)}
