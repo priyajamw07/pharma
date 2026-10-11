@@ -14,91 +14,96 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const product = PRODUCTS.find((p) => p.slug === slug) || PRODUCTS[0];
   const relatedProducts = PRODUCTS.filter((p) => p.slug !== product.slug);
 
-  const isAmox = product.slug === 'amox-one-lb';
-
   return (
     <main>
       <Breadcrumb
         title={product.name}
         parentPath="/products"
-        parentTitle="Products"
+        parentTitle="All Products"
         onNavigate={onNavigate}
       />
 
       <section className="section-padding">
         <div className="container">
           <div className="single-product-layout">
-            {/* Left Column: Image & Order CTA */}
+            {/* Left Column: Image & Order CTAs */}
             <div className="single-product-img-box">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="single-product-img"
-              />
-              <div style={{ textAlign: 'center', marginBottom: '18px', width: '100%' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', marginBottom: '4px' }}>
-                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> {product.packaging || 'Standard Ethical Packaging'}
+              <div className="single-img-wrap">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="single-product-img"
+                />
+              </div>
+
+              <div className="single-product-badges">
+                <div className="badge-packaging">
+                  <i className="fa-solid fa-boxes-packing"></i>
+                  <span>{product.packaging || 'Standard Ethical Packaging'}</span>
                 </div>
-                <div style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>
-                  Direct Doctor & Ethical Supply
+                <div className="badge-delivery-ready">
+                  <i className="fa-solid fa-truck-fast"></i>
+                  <span>Ready for Doorstep Delivery in Delhi NCR</span>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+              <div className="single-product-cta-group">
                 <a
                   href={`tel:${COMPANY_INFO.phone}`}
-                  className="custom-more-btn"
-                  style={{ width: '100%', justifyContent: 'center', textDecoration: 'none' }}
+                  className="btn-product-order-call"
+                  title="Direct phone call to place product order"
                 >
-                  <i className="fa-solid fa-phone" style={{ marginRight: '6px' }}></i>
-                  <span>Call: {COMPANY_INFO.phone}</span>
+                  <i className="fa-solid fa-phone"></i>
+                  <span>Call to Order: {COMPANY_INFO.phone}</span>
                 </a>
+
                 <a
                   href="/contact-us"
                   onClick={(e) => { e.preventDefault(); onNavigate('/contact-us'); }}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    padding: '12px 20px',
-                    borderRadius: '8px',
-                    background: '#f8fafc',
-                    color: '#0047bb',
-                    border: '1.5px solid #cbd5e1',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer'
-                  }}
+                  className="btn-product-enquire"
                 >
-                  <i className="fa-solid fa-envelope"></i>
-                  <span>Contact Corporate Office</span>
+                  <i className="fa-regular fa-envelope"></i>
+                  <span>Enquire / Request Delivery</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Title & Detailed Indications */}
+            {/* Right Column: Title, Therapeutic Indications, Composition */}
             <div className="single-details-content">
-              <span className="product-category-tag" style={{ fontSize: '13px' }}>
-                {product.categoryName} ? GMP Certified Formulation
+              <span className="product-category-tag">
+                {product.categoryName} ? Genuine Batch Authenticated
               </span>
-              <h2>{product.name}</h2>
+              <h1 className="single-product-title">{product.name}</h1>
+              <p className="single-product-lead">{product.shortDesc}</p>
+
+              {/* Highlights / Key Clinical Points */}
+              {product.highlights && product.highlights.length > 0 && (
+                <div className="single-highlights-box">
+                  <h4 className="highlights-heading">
+                    <i className="fa-solid fa-circle-check" style={{ color: '#0d9488', marginRight: '8px' }}></i>
+                    Key Formulation Features & Benefits:
+                  </h4>
+                  <ul className="highlights-list">
+                    {product.highlights.map((h, i) => (
+                      <li key={i}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Composition Table if present */}
               {product.composition && product.composition.length > 0 && (
-                <div style={{ margin: '20px 0' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>
-                    <i className="fa-solid fa-table-cells" style={{ color: '#0047bb', marginRight: '6px' }}></i>
+                <div className="composition-section">
+                  <h4 className="composition-heading">
+                    <i className="fa-solid fa-table-cells" style={{ color: '#0047bb', marginRight: '8px' }}></i>
                     Active Ingredients Composition:
                   </h4>
                   <div className="table-responsive">
                     <table className="composition-table">
                       <thead>
                         <tr>
-                          <th>Each Tablet Contains</th>
-                          <th>Strength</th>
+                          <th>Active Constituent</th>
+                          <th>Strength / Per Serving</th>
                           <th>% RDA</th>
                         </tr>
                       </thead>
@@ -113,30 +118,16 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       </tbody>
                     </table>
                   </div>
-                  <p style={{ fontSize: '12px', color: '#64748b', fontStyle: 'italic', marginTop: '6px' }}>
-                    **Daily Value not established. (% RDA calculated basis ICMR guidelines. Appropriate overages of vitamins added to compensate for loss on storage.)
-                  </p>
                 </div>
               )}
 
-              {/* Nutritional Information */}
+              {/* Nutritional Information if present */}
               {product.nutrition && product.nutrition.length > 0 && (
-                <div style={{ margin: '20px 0' }}>
-                  <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>
-                    Nutritional Information (Approx. values per serving):
-                  </h4>
-                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <div className="nutrition-section">
+                  <h4 className="nutrition-heading">Nutritional Values (Approx. per serving):</h4>
+                  <div className="nutrition-pills-row">
                     {product.nutrition.map((n, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          background: '#f1f5f9',
-                          padding: '8px 16px',
-                          borderRadius: '6px',
-                          fontSize: '13px',
-                          border: '1px solid #e2e8f0'
-                        }}
-                      >
+                      <div key={i} className="nutrition-pill">
                         <strong>{n.parameter}:</strong> {n.value}
                       </div>
                     ))}
@@ -144,16 +135,18 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 </div>
               )}
 
+              {/* Full Description Content */}
               <div
                 dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                style={{ fontSize: '15px', color: '#334155', marginTop: '20px' }}
+                className="single-description-prose"
               />
 
-              <div style={{ marginTop: '30px', padding: '20px', background: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid #0047bb' }}>
-                <p style={{ margin: 0, fontSize: '14px', color: '#475569', lineHeight: '1.6' }}>
-                  <strong>Marketed by:</strong> {COMPANY_INFO.name}<br />
-                  <strong>Corporate Address:</strong> {COMPANY_INFO.address}<br />
-                  <strong>Corporate Trade Desk:</strong> Call <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.phone}</a> / <a href={`tel:${COMPANY_INFO.phoneAlt}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.phoneAlt}</a> or Email <a href={`mailto:${COMPANY_INFO.email}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.email}</a>.
+              {/* Distribution & Contact Box */}
+              <div className="single-distributor-info-box">
+                <p>
+                  <strong>Sourced & Distributed by:</strong> {COMPANY_INFO.name}<br />
+                  <strong>Delhi Office:</strong> {COMPANY_INFO.address}<br />
+                  <strong>Order & Delivery Desk:</strong> Call <a href={`tel:${COMPANY_INFO.phone}`}>{COMPANY_INFO.phone}</a> / <a href={`tel:${COMPANY_INFO.phoneAlt}`}>{COMPANY_INFO.phoneAlt}</a> or Email <a href={`mailto:${COMPANY_INFO.email}`}>{COMPANY_INFO.email}</a>.
                 </p>
               </div>
             </div>
@@ -161,127 +154,86 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         </div>
       </section>
 
-      {/* Promotional Poster Banner */}
-      <section className="section-padding common-bg">
-        <div className="container">
-          <div className="common-left-title-div">
-            <div>
-              <div className="small-title">Visual Product Education</div>
-              <h2 className="big-title">Clinical & Formulation Overview</h2>
+      {/* Visual Product Banner / Education Section */}
+      {product.bannerImage && (
+        <section className="section-padding bg-light-neutral">
+          <div className="container">
+            <div className="section-header-center">
+              <span className="section-eyebrow">
+                <i className="fa-solid fa-image"></i> Visual Product Showcase
+              </span>
+              <h2 className="section-main-heading">Clinical Overview & Packaging Presentation</h2>
+            </div>
+
+            <div className="product-visual-banner-wrap">
+              <img
+                src={product.bannerImage}
+                alt={`${product.name} Presentation`}
+                className="product-banner-img"
+              />
             </div>
           </div>
+        </section>
+      )}
 
-          <div className="infographics-grid">
-            {isAmox ? (
-              <>
-                <div style={{ background: '#fff', borderRadius: '12px', padding: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
-                  <img
-                    src="/one_assets/amox-one-banner.jpg"
-                    alt="AMOX ONE LB Tablet"
-                    style={{ width: '100%', borderRadius: '8px', objectFit: 'contain' }}
-                  />
-                  <h4 style={{ marginTop: '12px', fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
-                    AMOX ONE LB: Broad-Spectrum Antibiotic Protection
-                  </h4>
-                </div>
-
-                <div style={{ background: '#fff', borderRadius: '12px', padding: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
-                  <img
-                    src="/one_assets/amox-one-infographic.jpg"
-                    alt="AMOX ONE LB Probiotic Protection"
-                    style={{ width: '100%', borderRadius: '8px', objectFit: 'contain' }}
-                  />
-                  <h4 style={{ marginTop: '12px', fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
-                    Dual Action Formula with Probiotic Shield
-                  </h4>
-                </div>
-              </>
-            ) : (
-              <>
-                <div style={{ background: '#fff', borderRadius: '12px', padding: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
-                  <img
-                    src="/one_assets/c-one-banner.jpg"
-                    alt="C-ONE Daily Wellness"
-                    style={{ width: '100%', borderRadius: '8px', objectFit: 'contain' }}
-                  />
-                  <h4 style={{ marginTop: '12px', fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
-                    C-ONE ENZYME: Daily Wellness Support
-                  </h4>
-                </div>
-
-                <div style={{ background: '#fff', borderRadius: '12px', padding: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
-                  <img
-                    src="/one_assets/c-one-poster.jpg"
-                    alt="C-ONE Complete Nutritional Support"
-                    style={{ width: '100%', borderRadius: '8px', objectFit: 'contain' }}
-                  />
-                  <h4 style={{ marginTop: '12px', fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
-                    Energy ? Immunity ? Active Life
-                  </h4>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Related Formulations */}
+      {/* Related Formulations from the 4-Product Portfolio */}
       {relatedProducts.length > 0 && (
         <section className="section-padding">
           <div className="container">
-            <div className="common-left-title-div">
+            <div className="section-header-split">
               <div>
-                <div className="small-title">Portfolio Formulations</div>
-                <h2 className="big-title">Related Therapies</h2>
+                <span className="section-eyebrow">
+                  <i className="fa-solid fa-capsules"></i> Complete Portfolio
+                </span>
+                <h2 className="section-main-heading">Other Available Formulations</h2>
               </div>
               <a
                 href="/products"
                 onClick={(e) => { e.preventDefault(); onNavigate('/products'); }}
-                className="common-left-title-btn"
+                className="theme-link-btn"
               >
-                View All <i className="fa-solid fa-arrow-right"></i>
+                <span>All 4 Products</span>
+                <i className="fa-solid fa-arrow-right"></i>
               </a>
             </div>
 
-            <div className="products-grid">
+            <div className="products-four-grid">
               {relatedProducts.map((rel) => (
-                <div key={rel.slug} className="product-card">
-                  <a
-                    href={`/products/${rel.slug}`}
-                    onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
-                  >
-                    <div className="product-img-wrap">
+                <div key={rel.slug} className="product-card-modern">
+                  <div className="product-card-media">
+                    <span className="product-category-badge">{rel.categoryName}</span>
+                    <a
+                      href={`/products/${rel.slug}`}
+                      onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
+                      className="product-card-img-link"
+                    >
                       <img
                         src={rel.image}
                         alt={rel.name}
-                        className="product-card-img"
+                        className="product-card-img-uncropped"
                       />
-                      <div className="product-plus-badge">
-                        <i className="fa-solid fa-plus"></i>
-                      </div>
-                    </div>
-                  </a>
+                    </a>
+                  </div>
 
-                  <div className="product-info-wrap">
-                    <div>
-                      <span className="product-category-tag">{rel.categoryName}</span>
-                      <h5 className="product-card-name">
-                        <a
-                          href={`/products/${rel.slug}`}
-                          onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
-                        >
-                          {rel.name}
-                        </a>
-                      </h5>
-                    </div>
-
-                    <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+                  <div className="product-card-content">
+                    <h3 className="product-card-title">
                       <a
                         href={`/products/${rel.slug}`}
                         onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
-                        className="product-read-more-btn"
                       >
-                        Details <i className="fa-solid fa-arrow-right" style={{ fontSize: '11px' }}></i>
+                        {rel.name}
+                      </a>
+                    </h3>
+                    <p className="product-card-desc">{rel.shortDesc}</p>
+
+                    <div className="product-card-actions">
+                      <a
+                        href={`/products/${rel.slug}`}
+                        onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
+                        className="btn-card-details"
+                      >
+                        <span>View Details</span>
+                        <i className="fa-solid fa-arrow-right"></i>
                       </a>
                     </div>
                   </div>

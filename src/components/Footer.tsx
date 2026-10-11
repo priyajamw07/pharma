@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { COMPANY_INFO } from '../data/products';
+import React from 'react';
+import { COMPANY_INFO, PRODUCTS } from '../data/products';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -12,136 +12,127 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="footer">
-      <div className="container footer-content">
+    <footer className="site-footer">
+      <div className="container">
         <div className="footer-content-grid">
-          {/* Col 1: About */}
-          <div className="logo-about-footer">
-            <a
-              href="/"
-              onClick={(e) => { e.preventDefault(); handleNav('/'); }}
-              className="navbar-logo"
-            >
+          {/* Column 1: Company Profile & Mission */}
+          <div className="footer-col">
+            <div className="footer-brand">
               <img
                 src={COMPANY_INFO.logo}
                 alt={COMPANY_INFO.name}
-                className="footer-logo"
+                className="footer-logo-img"
               />
-            </a>
-            <p style={{ fontWeight: 700, color: '#ffffff', fontSize: '15px', marginBottom: '8px' }}>
-              {COMPANY_INFO.tagline}
+              <h4 className="footer-company-name">{COMPANY_INFO.name}</h4>
+            </div>
+            <p className="footer-desc">
+              Your dependable partner for genuine healthcare product supply and prompt doorstep delivery across Delhi NCR. We distribute trusted, clinically proven formulations to clinics, pharmacies, and families.
             </p>
-            <p className="about-content" style={{ lineHeight: '1.7', color: '#94a3b8' }}>
-              {COMPANY_INFO.name} is dedicated to providing superior nutritional health supplements, vital micronutrients, and therapeutic formulations manufactured under strict GMP standards to improve everyday health and vitality.
-            </p>
+            <div className="footer-business-badge">
+              <i className="fa-solid fa-truck-fast" style={{ color: '#0047bb', marginRight: '6px' }}></i>
+              <span>Healthcare Product Sourcing & Doorstep Delivery</span>
+            </div>
           </div>
 
-          {/* Col 2: Quick Links */}
-          <div className="quick-links-footer">
-            <h3 className="footer-heading">Quick Links</h3>
+          {/* Column 2: Our 4 Products */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Our 4 Products</h4>
             <ul className="footer-links-list">
-              <li>
-                <a href="/" onClick={(e) => { e.preventDefault(); handleNav('/'); }}>
-                  <i className="fa-solid fa-angles-right" style={{ fontSize: '11px', color: '#60a5fa' }}></i> Home
-                </a>
-              </li>
-              <li>
-                <a href="/about-us" onClick={(e) => { e.preventDefault(); handleNav('/about-us'); }}>
-                  <i className="fa-solid fa-angles-right" style={{ fontSize: '11px', color: '#60a5fa' }}></i> About Us
-                </a>
-              </li>
-              <li>
-                <a href="/products" onClick={(e) => { e.preventDefault(); handleNav('/products'); }}>
-                  <i className="fa-solid fa-angles-right" style={{ fontSize: '11px', color: '#60a5fa' }}></i> Products (C-ONE)
-                </a>
-              </li>
-              <li>
-                <a href="/career" onClick={(e) => { e.preventDefault(); handleNav('/career'); }}>
-                  <i className="fa-solid fa-angles-right" style={{ fontSize: '11px', color: '#60a5fa' }}></i> Career
-                </a>
-              </li>
-              <li>
-                <a href="/contact-us" onClick={(e) => { e.preventDefault(); handleNav('/contact-us'); }}>
-                  <i className="fa-solid fa-angles-right" style={{ fontSize: '11px', color: '#60a5fa' }}></i> Contact Us
+              {PRODUCTS.map(p => (
+                <li key={p.slug}>
+                  <a
+                    href={`/products/${p.slug}`}
+                    onClick={(e) => { e.preventDefault(); handleNav(`/products/${p.slug}`); }}
+                  >
+                    <i className="fa-solid fa-angle-right" style={{ fontSize: '11px', color: '#0d9488', marginRight: '6px' }}></i>
+                    {p.name}
+                  </a>
+                </li>
+              ))}
+              <li style={{ marginTop: '8px' }}>
+                <a
+                  href="/products"
+                  onClick={(e) => { e.preventDefault(); handleNav('/products'); }}
+                  style={{ color: '#0047bb', fontWeight: 700 }}
+                >
+                  <i className="fa-solid fa-arrow-right" style={{ fontSize: '11px', marginRight: '6px' }}></i>
+                  View All Products Catalog
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Location */}
-          <div className="our-location-footer">
-            <h3 className="footer-heading">Our Location</h3>
-            <div>
+          {/* Column 3: Quick Navigation */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Quick Links</h4>
+            <ul className="footer-links-list">
+              <li>
+                <a href="/" onClick={(e) => { e.preventDefault(); handleNav('/'); }}>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about-us" onClick={(e) => { e.preventDefault(); handleNav('/about-us'); }}>
+                  About Our Company
+                </a>
+              </li>
+              <li>
+                <a href="/products" onClick={(e) => { e.preventDefault(); handleNav('/products'); }}>
+                  All 4 Products
+                </a>
+              </li>
+              <li>
+                <a href="/career" onClick={(e) => { e.preventDefault(); handleNav('/career'); }}>
+                  Career Opportunities
+                </a>
+              </li>
+              <li>
+                <a href="/contact-us" onClick={(e) => { e.preventDefault(); handleNav('/contact-us'); }}>
+                  Contact & Order Desk
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Delhi Office */}
+          <div className="footer-col">
+            <h4 className="footer-heading">Order & Delivery Office</h4>
+            <div className="footer-contact-items">
               <div className="footer-contact-item">
                 <i className="fa-solid fa-location-dot"></i>
-                <div>
-                  <p style={{ fontWeight: 600, color: '#ffffff', marginBottom: '2px' }}>Marketed By Office</p>
-                  <p style={{ fontSize: '13px', lineHeight: '1.5' }}>{COMPANY_INFO.address}</p>
-                </div>
+                <p>
+                  <strong>Delhi Office:</strong><br />
+                  {COMPANY_INFO.address}
+                </p>
               </div>
-
-
 
               <div className="footer-contact-item">
                 <i className="fa-solid fa-phone"></i>
-                <div>
-                  <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#cbd5e1', display: 'block' }}>
-                    {COMPANY_INFO.phone}
-                  </a>
-                  <a href={`tel:${COMPANY_INFO.phoneAlt}`} style={{ color: '#cbd5e1', display: 'block', fontSize: '12px' }}>
-                    {COMPANY_INFO.phoneAlt}
-                  </a>
-                </div>
+                <p>
+                  <strong>Call Helpline:</strong><br />
+                  <a href={`tel:${COMPANY_INFO.phone}`}>{COMPANY_INFO.phone}</a><br />
+                  <a href={`tel:${COMPANY_INFO.phoneAlt}`}>{COMPANY_INFO.phoneAlt}</a>
+                </p>
               </div>
 
               <div className="footer-contact-item">
-                <i className="fa-solid fa-envelope"></i>
-                <div>
-                  <a href={`mailto:${COMPANY_INFO.email}`} style={{ color: '#cbd5e1', display: 'block', wordBreak: 'break-all' }}>
-                    {COMPANY_INFO.email}
-                  </a>
-                </div>
+                <i className="fa-regular fa-envelope"></i>
+                <p>
+                  <strong>Email Desk:</strong><br />
+                  <a href={`mailto:${COMPANY_INFO.email}`}>{COMPANY_INFO.email}</a>
+                </p>
               </div>
-            </div>
-
-            <div className="footer-social-links">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://facebook.com"
-                className="footer-social-btn"
-                aria-label="Facebook"
-              >
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://twitter.com"
-                className="footer-social-btn"
-                aria-label="Twitter / X"
-              >
-                <i className="fa-brands fa-x-twitter"></i>
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-                className="footer-social-btn"
-                aria-label="WhatsApp"
-              >
-                <i className="fab fa-whatsapp"></i>
-              </a>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="sub-footer">
-        <div className="container sub-footer-content">
-          <p>© {new Date().getFullYear()} - {COMPANY_INFO.name}. All Rights Reserved.</p>
-          <p>
-            {COMPANY_INFO.tagline}
+        {/* Sub-Footer Copyright */}
+        <div className="sub-footer-bar">
+          <p className="copyright-text">
+            ? {new Date().getFullYear()} <strong>{COMPANY_INFO.name}</strong>. All Rights Reserved. Healthcare Product Distribution & Doorstep Delivery.
+          </p>
+          <p className="footer-note-text">
+            Disclaimer: We are an authorized distributor and delivery provider of healthcare products and do not manufacture medicines. All medicines should be taken under medical supervision.
           </p>
         </div>
       </div>

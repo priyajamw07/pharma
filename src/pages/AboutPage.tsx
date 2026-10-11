@@ -1,6 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { Breadcrumb } from '../components/Breadcrumb';
-import { COMPANY_INFO } from '../data/products';
+import { COMPANY_INFO, PRODUCTS } from '../data/products';
 
 interface AboutPageProps {
   onNavigate: (path: string) => void;
@@ -11,143 +11,165 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
     <main>
       <Breadcrumb title="About Us" onNavigate={onNavigate} />
 
-      {/* Main Company Intro */}
+      {/* Main Company Intro - Split Layout */}
       <section className="section-padding">
         <div className="container">
-          <div className="about-grid">
-            <div>
-              <img
-                src="/one_assets/doctor-hero2.jpg"
-                alt="About ONE ETHICAL PHARMACEUTICAL"
-                className="about-img"
-              />
-            </div>
-            <div>
-              <div className="small-title">About The Company</div>
-              <h2 className="big-title" style={{ marginBottom: '20px' }}>
-                {COMPANY_INFO.name}
-              </h2>
-              <p className="common-des">
-                <strong>{COMPANY_INFO.name}</strong> is a dedicated pharmaceutical and nutraceutical marketing organization committed to its founding principle: <em>"{COMPANY_INFO.tagline}"</em>.
-              </p>
-              <p className="common-des">
-                We specialize in scientifically validated dietary health supplements, therapeutic micronutrients, and high-potency antioxidant enzymes. Every product is developed in state-of-the-art GMP-certified facilities adhering to strict regulatory protocols and ICMR guidelines.
-              </p>
-              <p className="common-des">
-                Our flagship formulation, <strong>C-ONE ENZYME Tablet</strong>, represents our commitment to synergistic nutritional therapeutics—combining CoQ10, Omega 3, L-Carnitine, and herbal extracts into a single comprehensive daily tablet for cardiac stamina, metabolism, and longevity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision Section */}
-      <section className="section-padding common-bg">
-        <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px auto' }}>
-            <div className="small-title">Guiding Purpose</div>
-            <h2 className="big-title">Mission & Vision</h2>
-          </div>
-
-          <div className="mission-vision-grid">
-            <div className="mission-box">
-              <div style={{ fontSize: '38px', color: '#0047bb', flexShrink: 0 }}>
-                <i className="fa-solid fa-bullseye"></i>
-              </div>
-              <div>
-                <h3 className="mission-title">Our Mission</h3>
-                <p className="common-des" style={{ margin: 0 }}>
-                  To deliver ethically formulated, accessible, and scientifically superior healthcare medicines that improve clinical outcomes, restore vitality, and build a healthier tomorrow for every family.
-                </p>
+          <div className="about-split-layout">
+            <div className="about-visual-column">
+              <div className="hero-image-frame">
+                <img
+                  src="/one_assets/cartoon-doctors-hero1.jpg"
+                  alt="ONE ETHICAL PHARMACEUTICAL Healthcare Team"
+                  className="hero-cartoon-image"
+                />
+                <div className="hero-image-tag">
+                  <i className="fa-solid fa-truck-medical"></i>
+                  <span>Product Supply & Doorstep Delivery</span>
+                </div>
               </div>
             </div>
 
-            <div className="mission-box">
-              <div style={{ fontSize: '38px', color: '#0047bb', flexShrink: 0 }}>
-                <i className="fa-solid fa-eye"></i>
-              </div>
-              <div>
-                <h3 className="mission-title">Our Vision</h3>
-                <p className="common-des" style={{ margin: 0 }}>
-                  To be recognized as India's most trusted ethical pharmaceutical brand in preventive nutrition and specialized healthcare therapies, renowned for unmatched quality and physician trust.
-                </p>
+            <div className="about-text-column">
+              <span className="section-eyebrow">
+                <i className="fa-solid fa-building-circle-check"></i> Sourcing & Delivery Provider
+              </span>
+              <h1 className="section-main-heading">
+                About {COMPANY_INFO.name}
+              </h1>
+              <p className="section-body-lead">
+                <strong>{COMPANY_INFO.name}</strong> is a dedicated healthcare product distribution and doorstep delivery enterprise based in Delhi NCR, operating under the principle of <em>"{COMPANY_INFO.tagline}"</em>.
+              </p>
+              <p className="section-body-text">
+                We are <strong>not manufacturers</strong>; our core specialty is the rigorous sourcing, stock keeping, and prompt delivery of four proven healthcare formulations. We bridge the critical gap between certified pharmaceutical producers and local healthcare providers, retail chemists, and end patients.
+              </p>
+              <p className="section-body-text">
+                Every consignment we distribute is authenticated through licensed distribution channels with full batch traceability, tamper-evident seals, and climate-conscious handling.
+              </p>
+
+              <div className="about-metrics-row">
+                <div className="metric-box">
+                  <div className="metric-icon"><i className="fa-solid fa-box-open"></i></div>
+                  <div className="metric-info">
+                    <h4>4 Proven Formulations</h4>
+                    <p>Curated portfolio meeting high clinical standards</p>
+                  </div>
+                </div>
+
+                <div className="metric-box">
+                  <div className="metric-icon"><i className="fa-solid fa-shield-halved"></i></div>
+                  <div className="metric-info">
+                    <h4>100% Genuine Batches</h4>
+                    <p>Direct sourcing with complete batch documentation</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Values Section */}
-      <section className="section-padding">
+      {/* Sourcing & Delivery Standards */}
+      <section className="section-padding bg-light-neutral">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 30px auto' }}>
-            <div className="small-title">Our Ethical Foundations</div>
-            <h2 className="big-title">Core Principles</h2>
-            <p className="common-des">
-              Ethics, scientific transparency, and genuine patient wellbeing are the cornerstones of {COMPANY_INFO.shortName}.
+          <div className="section-header-center">
+            <span className="section-eyebrow">
+              <i className="fa-solid fa-clipboard-check"></i> Operational Principles
+            </span>
+            <h2 className="section-main-heading">How We Serve Healthcare Providers</h2>
+            <p className="section-sub-lead">
+              Our business is built around reliability, proper medicine handling, and attentive customer service.
             </p>
           </div>
 
-          <div className="values-grid">
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-certificate"></i>
-              </div>
-              <h4 className="value-title">Uncompromising Quality</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Rigorous testing of raw active pharmaceutical ingredients (APIs) and finished tablets in GMP compliant facilities.
-              </p>
+          <div className="why-delivery-grid">
+            <div className="why-delivery-box">
+              <div className="why-icon-circle"><i className="fa-solid fa-handshake-simple"></i></div>
+              <h4>Licensed Channel Sourcing</h4>
+              <p>We work exclusively with authorized pharmaceutical suppliers and licensed distribution hubs to ensure uncompromised quality.</p>
             </div>
 
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-scale-balanced"></i>
-              </div>
-              <h4 className="value-title">Ethical Transparency</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Clear labeling, verifiable compositional percentages (%RDA), and honest relationships with doctors and patients.
-              </p>
+            <div className="why-delivery-box">
+              <div className="why-icon-circle"><i className="fa-solid fa-temperature-low"></i></div>
+              <h4>Temperature Monitored Storage</h4>
+              <p>Stock is housed in temperature-controlled spaces below 25?C in Delhi to protect delicate active ingredients like CoQ10 and probiotics.</p>
             </div>
 
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-dna"></i>
-              </div>
-              <h4 className="value-title">Scientific Synergism</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Formulations built around synergistic clinical mechanisms—like pairing CoQ10 with L-Carnitine for cellular ATP synthesis.
-              </p>
+            <div className="why-delivery-box">
+              <div className="why-icon-circle"><i className="fa-solid fa-motorcycle"></i></div>
+              <h4>Prompt Local Dispatch</h4>
+              <p>Fast logistics network covering Delhi, Noida, Ghaziabad, and surrounding NCR hubs for rapid order fulfillment.</p>
             </div>
 
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-hand-holding-heart"></i>
-              </div>
-              <h4 className="value-title">Patient-First Pricing</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Delivering premium international-standard nutraceuticals at fair, affordable price points across Indian healthcare.
-              </p>
+            <div className="why-delivery-box">
+              <div className="why-icon-circle"><i className="fa-solid fa-file-invoice"></i></div>
+              <h4>Transparent Invoicing</h4>
+              <p>Accurate GST billing, transparent stock updates, and dedicated phone support for every healthcare order.</p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-users-gear"></i>
-              </div>
-              <h4 className="value-title">Distributor Partnership</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Empowering trade partners and medical representatives with comprehensive scientific literature and reliable supply.
-              </p>
-            </div>
+      {/* Portfolio Showcase on About Page */}
+      <section className="section-padding">
+        <div className="container">
+          <div className="section-header-center">
+            <span className="section-eyebrow">
+              <i className="fa-solid fa-capsules"></i> Our Four Formulations
+            </span>
+            <h2 className="section-main-heading">The Products We Deliver</h2>
+            <p className="section-sub-lead">
+              Click any product to view its complete composition, usage guidance, and delivery availability.
+            </p>
+          </div>
 
-            <div className="value-card">
-              <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '14px' }}>
-                <i className="fa-solid fa-shield-halved"></i>
+          <div className="products-four-grid">
+            {PRODUCTS.map(p => (
+              <div key={p.slug} className="product-card-modern">
+                <div className="product-card-media">
+                  <span className="product-category-badge">{p.categoryName}</span>
+                  <a
+                    href={`/products/${p.slug}`}
+                    onClick={(e) => { e.preventDefault(); onNavigate(`/products/${p.slug}`); }}
+                    className="product-card-img-link"
+                  >
+                    <img src={p.image} alt={p.name} className="product-card-img-uncropped" />
+                  </a>
+                </div>
+                <div className="product-card-content">
+                  <h3 className="product-card-title">
+                    <a
+                      href={`/products/${p.slug}`}
+                      onClick={(e) => { e.preventDefault(); onNavigate(`/products/${p.slug}`); }}
+                    >
+                      {p.name}
+                    </a>
+                  </h3>
+                  <p className="product-card-desc">{p.shortDesc}</p>
+                  <div className="product-card-actions">
+                    <a
+                      href={`/products/${p.slug}`}
+                      onClick={(e) => { e.preventDefault(); onNavigate(`/products/${p.slug}`); }}
+                      className="btn-card-details"
+                    >
+                      <span>View Details</span>
+                      <i className="fa-solid fa-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <h4 className="value-title">Regulatory Vigilance</h4>
-              <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                Full compliance with national health authorities and stringent quality testing.
-              </p>
-            </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '36px' }}>
+            <a
+              href="/contact-us"
+              onClick={(e) => { e.preventDefault(); onNavigate('/contact-us'); }}
+              className="hero-btn-primary"
+              style={{ display: 'inline-flex' }}
+            >
+              <span>Contact Our Order Desk</span>
+              <i className="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </section>

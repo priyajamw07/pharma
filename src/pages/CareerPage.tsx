@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { COMPANY_INFO } from '../data/products';
 
@@ -11,7 +11,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
     name: '',
     mobile: '',
     email: '',
-    position: 'Medical Representative (Nutraceuticals)',
+    role: 'Pharmaceutical Sales & Distribution Executive',
     experience: '1-3 Years',
     message: ''
   });
@@ -26,27 +26,36 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
     }
     setSubmitting(true);
     try {
-      await fetch(`https://formsubmit.co/ajax/oneethicalpharmaceutical@gmail.com`, {
+      const res = await fetch(`https://formsubmit.co/ajax/oneethicalpharmaceutical@gmail.com`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `Career Application: ${formData.position} - ${formData.name}`,
+          type: 'Career Application',
           name: formData.name,
           mobile: formData.mobile,
           email: formData.email,
-          position: formData.position,
+          role: formData.role,
           experience: formData.experience,
           message: formData.message,
-          targetEmail: COMPANY_INFO.email
+          _subject: `Career Application: ${formData.role} - ${formData.name}`,
+          company: COMPANY_INFO.name
         })
       });
-      setSubmitted(true);
-    } catch (err) {
-      const subject = encodeURIComponent(`Career Application - ${formData.position} - ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nRole: ${formData.position}\nExperience: ${formData.experience}\nNote: ${formData.message}`);
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const subject = encodeURIComponent(`Career Application: ${formData.role} - ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nRole: ${formData.role}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
+        window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
+        setSubmitted(true);
+      }
+    } catch {
+      const subject = encodeURIComponent(`Career Application: ${formData.role} - ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nRole: ${formData.role}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
       window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitted(true);
     } finally {
@@ -56,28 +65,103 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
 
   return (
     <main>
-      <Breadcrumb title="Career" onNavigate={onNavigate} />
+      <Breadcrumb title="Careers" onNavigate={onNavigate} />
 
-      <section className="section-padding common-bg">
+      <section className="section-padding">
         <div className="container">
+          <div className="section-header-center">
+            <span className="section-eyebrow">
+              <i className="fa-solid fa-briefcase"></i> Work With Us
+            </span>
+            <h1 className="section-main-heading">Career Opportunities</h1>
+            <p className="section-sub-lead">
+              Join our growing healthcare product distribution network across Delhi NCR. We value integrity, dedication, and professional excellence.
+            </p>
+          </div>
+
           <div className="contact-grid">
-            {/* Form Box */}
+            {/* Left: Open Roles & Office Info */}
+            <div className="contact-info-card">
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Current Openings</span>
+              <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>
+                Join Our Supply & Distribution Team
+              </h3>
+              <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
+                We are actively looking for energetic professionals to strengthen our healthcare product outreach and delivery network in Delhi NCR.
+              </p>
+
+              {/* Role Card 1 */}
+              <div className="career-role-box">
+                <div className="role-header">
+                  <h4 className="role-title">Sales & Distribution Executive</h4>
+                  <span className="role-type-pill">Delhi NCR</span>
+                </div>
+                <p className="role-desc">
+                  Build relationships with local pharmacies, stockists, and clinics for our 4 core formulations. Coordinate orders and ensure reliable fulfillment.
+                </p>
+                <div className="role-meta">
+                  <span><i className="fa-solid fa-user-check"></i> Field Experience: 1-3 Yrs</span>
+                  <span><i className="fa-solid fa-clock"></i> Full Time</span>
+                </div>
+              </div>
+
+              {/* Role Card 2 */}
+              <div className="career-role-box" style={{ marginTop: '16px' }}>
+                <div className="role-header">
+                  <h4 className="role-title">Operations & Delivery Coordinator</h4>
+                  <span className="role-type-pill">Delhi 110091</span>
+                </div>
+                <p className="role-desc">
+                  Manage inventory intake, temperature-controlled packaging, and dispatch routing for swift deliveries across the NCR region.
+                </p>
+                <div className="role-meta">
+                  <span><i className="fa-solid fa-box-archive"></i> Logistics & Dispatch</span>
+                  <span><i className="fa-solid fa-clock"></i> Full Time</span>
+                </div>
+              </div>
+
+              {/* Direct Resume Submission Note */}
+              <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid #e2e8f0' }}>
+                <h5 style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                  Prefer to Email Your CV Directly?
+                </h5>
+                <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '10px' }}>
+                  Send your resume and profile directly to our recruitment desk at:
+                </p>
+                <a
+                  href={`mailto:${COMPANY_INFO.email}?subject=Job Application - ONE ETHICAL`}
+                  style={{ color: '#0047bb', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}
+                >
+                  <i className="fa-regular fa-envelope" style={{ marginRight: '6px' }}></i>
+                  {COMPANY_INFO.email}
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Application Form */}
             <div className="form-card">
-              <div className="small-title">Build Your Future</div>
-              <h2 className="big-title" style={{ fontSize: '26px', marginBottom: '12px' }}>
-                Join ONE ETHICAL PHARMACEUTICAL
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Quick Application</span>
+              <h2 className="big-title" style={{ fontSize: '24px', marginBottom: '8px' }}>
+                Submit Your Profile
               </h2>
-              <p className="common-des" style={{ marginBottom: '24px' }}>
-                Applications are delivered straight to <strong>{COMPANY_INFO.email}</strong>.
+              <p className="common-des" style={{ marginBottom: '20px' }}>
+                Fill out the application below. Submissions are delivered directly to <strong>{COMPANY_INFO.email}</strong>.
               </p>
 
               {submitted ? (
-                <div style={{ textAlign: 'center', padding: '40px 20px', background: '#f0fdf4', borderRadius: '10px' }}>
-                  <i className="fa-solid fa-circle-check" style={{ fontSize: '48px', color: '#16a34a', marginBottom: '16px' }}></i>
-                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Application Submitted!</h3>
-                  <p style={{ color: '#15803d' }}>
-                    Thank you, {formData.name}. Your details have been sent to <strong>{COMPANY_INFO.email}</strong>.
+                <div style={{ textAlign: 'center', padding: '36px 20px', background: '#f0fdf4', borderRadius: '10px' }}>
+                  <i className="fa-solid fa-circle-check" style={{ fontSize: '44px', color: '#16a34a', marginBottom: '14px' }}></i>
+                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Application Received!</h3>
+                  <p style={{ color: '#15803d', marginTop: '8px' }}>
+                    Thank you, {formData.name}. Our recruitment team will review your application and connect with you shortly.
                   </p>
+                  <button
+                    onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', role: 'Pharmaceutical Sales & Distribution Executive', experience: '1-3 Years', message: '' }); }}
+                    className="hero-btn-primary"
+                    style={{ marginTop: '18px', fontSize: '13px', padding: '8px 20px' }}
+                  >
+                    <span>Submit Another Application</span>
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
@@ -88,7 +172,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Enter your full name"
+                      placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
@@ -102,7 +186,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     <input
                       type="tel"
                       className="form-control"
-                      placeholder="10-digit mobile number"
+                      placeholder="Your 10-digit Mobile Number"
                       maxLength={10}
                       value={formData.mobile}
                       onChange={(e) => setFormData({ ...formData, mobile: e.target.value.replace(/\D/g, '') })}
@@ -111,50 +195,52 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <div className="form-group">
-                    <label>Email Address</label>
+                    <label>
+                      Email Address <span style={{ color: '#e11d48' }}>*</span>
+                    </label>
                     <input
                       type="email"
                       className="form-control"
-                      placeholder="Enter your email"
+                      placeholder="name@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
                     />
                   </div>
 
                   <div className="form-group">
-                    <label>Target Role</label>
+                    <label>Role of Interest</label>
                     <select
                       className="form-control"
-                      value={formData.position}
-                      onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                      value={formData.role}
+                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     >
-                      <option value="Medical Representative (Nutraceuticals)">Medical Representative (MR)</option>
-                      <option value="Area Business Manager (ABM)">Area Business Manager (ABM)</option>
-                      <option value="Regional Sales Manager (RSM)">Regional Sales Manager (RSM)</option>
-                      <option value="Institutional Sales Executive">Institutional / Hospital Sales</option>
-                      <option value="Supply Chain & Logistics">Supply Chain & Logistics Coordinator</option>
+                      <option value="Pharmaceutical Sales & Distribution Executive">Pharmaceutical Sales & Distribution Executive</option>
+                      <option value="Operations & Delivery Coordinator">Operations & Delivery Coordinator</option>
+                      <option value="General Healthcare Operations">General Healthcare Operations</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label>Relevant Experience</label>
+                    <label>Experience Level</label>
                     <select
                       className="form-control"
                       value={formData.experience}
                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                     >
-                      <option value="Fresher">Fresher (B.Pharm / B.Sc / Graduate)</option>
-                      <option value="1-3 Years">1 - 3 Years</option>
-                      <option value="3-5 Years">3 - 5 Years</option>
-                      <option value="5+ Years">5+ Years Senior Manager</option>
+                      <option value="Fresher / < 1 Year">Fresher / &lt; 1 Year</option>
+                      <option value="1-3 Years">1-3 Years</option>
+                      <option value="3-5 Years">3-5 Years</option>
+                      <option value="5+ Years">5+ Years</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label>Territory Experience / Brief Note</label>
+                    <label>Brief Introduction / Notes</label>
                     <textarea
                       className="form-control"
-                      placeholder="Mention your previous territories covered, key specialties (Cardio, Physician, Diabetology)..."
+                      rows={3}
+                      placeholder="Tell us about your background, previous pharmaceutical sales, or logistics experience..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     ></textarea>
@@ -162,68 +248,17 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
 
                   <button
                     type="submit"
-                    className="custom-more-btn"
+                    className="hero-btn-primary"
                     style={{ width: '100%', justifyContent: 'center' }}
                     disabled={submitting}
                   >
                     <span>
-                      {submitting ? 'Submitting Application...' : 'Submit Application'}
+                      {submitting ? 'Submitting Application...' : 'Send Application'}
                       <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i>
                     </span>
                   </button>
                 </form>
               )}
-            </div>
-
-            {/* Right Information Column */}
-            <div>
-              <div className="address-box" style={{ marginBottom: '30px' }}>
-                <div style={{ fontSize: '40px', color: '#0047bb', marginBottom: '16px' }}>
-                  <i className="fa-solid fa-briefcase"></i>
-                </div>
-                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>
-                  Why Join ONE ETHICAL?
-                </h3>
-                <p className="common-des">
-                  We value hard work, integrity, and clinical passion. When promoting formulations like C-ONE ENZYME, you represent products backed by certified GMP standards and tangible patient satisfaction.
-                </p>
-
-                <div style={{ marginTop: '20px' }}>
-                  <div style={{ display: 'flex', gap: '12px', marginBottom: '14px' }}>
-                    <i className="fa-solid fa-circle-check" style={{ color: '#0047bb', marginTop: '4px' }}></i>
-                    <p style={{ margin: 0, fontSize: '14px', color: '#334155' }}>
-                      <strong>High Incentive Earning Model:</strong> Transparent, uncapped performance incentives for sales milestones.
-                    </p>
-                  </div>
-
-                  <div style={{ display: 'flex', gap: '12px', marginBottom: '14px' }}>
-                    <i className="fa-solid fa-circle-check" style={{ color: '#0047bb', marginTop: '4px' }}></i>
-                    <p style={{ margin: 0, fontSize: '14px', color: '#334155' }}>
-                      <strong>Scientifically Sound Portfolio:</strong> Backed by robust product literature, detailing visual aids, and sample support.
-                    </p>
-                  </div>
-
-                  <div style={{ display: 'flex', gap: '12px' }}>
-                    <i className="fa-solid fa-circle-check" style={{ color: '#0047bb', marginTop: '4px' }}></i>
-                    <p style={{ margin: 0, fontSize: '14px', color: '#334155' }}>
-                      <strong>Rapid Growth Track:</strong> Opportunities to progress rapidly to managerial and territory leadership roles.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="address-box">
-                <h4 style={{ fontWeight: 700, color: '#0f172a', marginBottom: '10px' }}>Send Resume Directly</h4>
-                <p style={{ fontSize: '14px', color: '#64748b', marginBottom: '14px' }}>
-                  Candidates may also email their updated CV directly with subject line <em>"Application - [Role] - [Territory]"</em> to:
-                </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <i className="fa-regular fa-envelope" style={{ color: '#0047bb' }}></i>
-                  <a href={`mailto:${COMPANY_INFO.email}`} style={{ fontWeight: 700, color: '#0047bb', wordBreak: 'break-all' }}>
-                    {COMPANY_INFO.email}
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

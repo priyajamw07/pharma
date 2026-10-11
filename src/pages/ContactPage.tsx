@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { COMPANY_INFO } from '../data/products';
 
@@ -28,7 +28,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     setErrorMessage('');
 
     try {
-      // 1. Post to Formspree endpoint targeting oneethicalpharmaceutical@gmail.com
       const res = await fetch(`https://formsubmit.co/ajax/oneethicalpharmaceutical@gmail.com`, {
         method: 'POST',
         headers: {
@@ -40,7 +39,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           mobile: formData.mobile,
           email: formData.email,
           message: formData.comments,
-          _subject: `New Message from ${formData.name} (${formData.mobile})`,
+          _subject: `Product Order / Message from ${formData.name} (${formData.mobile})`,
           company: COMPANY_INFO.name
         })
       });
@@ -48,15 +47,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        // Fallback: Opens default email client with prefilled details directly to oneethicalpharmaceutical@gmail.com
-        const subject = encodeURIComponent(`Message from ${formData.name}`);
+        const subject = encodeURIComponent(`Product Order / Message from ${formData.name}`);
         const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.comments}`);
         window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
       }
-    } catch (err) {
-      // Direct mailto fallback so user request always reaches oneethicalpharmaceutical@gmail.com
-      const subject = encodeURIComponent(`Message from ${formData.name}`);
+    } catch {
+      const subject = encodeURIComponent(`Product Order / Message from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.comments}`);
       window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitted(true);
@@ -71,46 +68,53 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
       <section className="section-padding">
         <div className="container">
+          <div className="section-header-center">
+            <span className="section-eyebrow">
+              <i className="fa-solid fa-headset"></i> Order & Support Desk
+            </span>
+            <h1 className="section-main-heading">Get in Touch With Us</h1>
+            <p className="section-sub-lead">
+              Reach our corporate office in Delhi 110091 for product orders, stockist supply, and delivery confirmation across Delhi NCR.
+            </p>
+          </div>
+
           <div className="contact-grid">
-            {/* Left: Contact Info */}
-            <div className="address-box">
-              <div className="small-title">Get In Touch</div>
-              <h2 className="big-title" style={{ fontSize: '26px', marginBottom: '8px' }}>
-                Corporate Contact Details
-              </h2>
-              <p className="common-des" style={{ marginBottom: '28px' }}>
-                You can reach ONE ETHICAL PHARMACEUTICAL via Call, Official Email, or Direct Visit.
+            {/* Left: Contact Information Cards */}
+            <div className="contact-info-card">
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Office Details</span>
+              <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0f172a', marginBottom: '18px' }}>
+                Corporate Order & Delivery Office
+              </h3>
+              <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
+                {COMPANY_INFO.name} delivers 4 trusted healthcare formulations to clinics, nursing homes, chemist shops, and patients.
               </p>
 
-              {/* Marketed By Address */}
+              {/* Physical Office Address */}
               <div className="contact-info-item">
                 <div className="contact-icon-bubble">
                   <i className="fa-solid fa-location-dot"></i>
                 </div>
                 <div>
                   <h5 style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>
-                    Marketed By Office
+                    Office Address
                   </h5>
-                  <p style={{ margin: 0, fontSize: '14px', color: '#475569', lineHeight: '1.5' }}>
-                    <strong>{COMPANY_INFO.name}</strong><br />
+                  <p style={{ margin: 0, color: '#475569', fontSize: '14px', lineHeight: '1.5' }}>
                     {COMPANY_INFO.address}
                   </p>
                 </div>
               </div>
 
-
-
-              {/* Phone Numbers */}
+              {/* Verified Phone Numbers */}
               <div className="contact-info-item">
                 <div className="contact-icon-bubble">
                   <i className="fa-solid fa-phone"></i>
                 </div>
                 <div>
                   <h5 style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>
-                    Contact Numbers
+                    Order Helplines
                   </h5>
                   <p style={{ margin: 0, fontSize: '14px' }}>
-                    <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#0047bb', display: 'block', fontWeight: 700 }}>
+                    <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#0047bb', fontWeight: 700, display: 'block' }}>
                       {COMPANY_INFO.phone}
                     </a>
                     <a href={`tel:${COMPANY_INFO.phoneAlt}`} style={{ color: '#475569', display: 'block', fontWeight: 600, marginTop: '4px' }}>
@@ -120,7 +124,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Email Addresses */}
+              {/* Official Email */}
               <div className="contact-info-item">
                 <div className="contact-icon-bubble">
                   <i className="fa-regular fa-envelope"></i>
@@ -137,61 +141,43 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Social Channels */}
-              <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid #e2e8f0' }}>
-                <p style={{ fontSize: '13px', fontWeight: 600, color: '#64748b', marginBottom: '12px' }}>CONNECT WITH US</p>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://facebook.com"
-                    className="footer-social-btn"
-                    style={{ background: '#0047bb', color: '#fff' }}
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://twitter.com"
-                    className="footer-social-btn"
-                    style={{ background: '#0f172a', color: '#fff' }}
-                  >
-                    <i className="fa-brands fa-x-twitter"></i>
-                  </a>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={`https://api.whatsapp.com/send?phone=${COMPANY_INFO.phone.replace(/[^0-9]/g, '')}`}
-                    className="footer-social-btn"
-                    style={{ background: '#25d366', color: '#fff' }}
-                  >
-                    <i className="fab fa-whatsapp"></i>
-                  </a>
+              {/* Working Hours */}
+              <div className="contact-info-item">
+                <div className="contact-icon-bubble">
+                  <i className="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h5 style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>
+                    Business Hours
+                  </h5>
+                  <p style={{ margin: 0, color: '#475569', fontSize: '14px' }}>
+                    Monday - Saturday: 9:30 AM to 7:00 PM<br />
+                    Sunday: Closed
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Right: Contact Form */}
+            {/* Right: Message & Order Form */}
             <div className="form-card">
-              <div className="small-title">Corporate Office Contact</div>
-              <h2 className="big-title" style={{ fontSize: '26px', marginBottom: '8px' }}>
-                Send An Email Message
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Send An Email</span>
+              <h2 className="big-title" style={{ fontSize: '24px', marginBottom: '8px' }}>
+                Send A Message or Order Request
               </h2>
               <p className="common-des" style={{ marginBottom: '24px' }}>
-                Messages submitted here are delivered directly to <strong>{COMPANY_INFO.email}</strong>.
+                Your message is sent directly to <strong>{COMPANY_INFO.email}</strong>.
               </p>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '40px 20px', background: '#f0fdf4', borderRadius: '10px' }}>
                   <i className="fa-solid fa-circle-check" style={{ fontSize: '48px', color: '#16a34a', marginBottom: '16px' }}></i>
-                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Message Sent Successfully!</h3>
+                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Message Delivered!</h3>
                   <p style={{ color: '#15803d', marginTop: '8px' }}>
-                    Thank you, {formData.name}. Your message has been routed to <strong>{COMPANY_INFO.email}</strong>.
+                    Thank you, {formData.name}. Your details have been sent to <strong>{COMPANY_INFO.email}</strong>. Our order desk will contact you shortly.
                   </p>
                   <button
                     onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', comments: '' }); }}
-                    className="custom-more-btn"
+                    className="hero-btn-primary"
                     style={{ marginTop: '20px', fontSize: '13px', padding: '8px 20px' }}
                   >
                     <span>Send Another Message</span>
@@ -201,7 +187,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label>
-                      Name <span style={{ color: '#e11d48' }}>*</span>
+                      Full Name <span style={{ color: '#e11d48' }}>*</span>
                     </label>
                     <input
                       type="text"
@@ -215,7 +201,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
                   <div className="form-group">
                     <label>
-                      Mobile <span style={{ color: '#e11d48' }}>*</span>
+                      Mobile Number <span style={{ color: '#e11d48' }}>*</span>
                     </label>
                     <input
                       type="tel"
@@ -230,7 +216,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
                   <div className="form-group">
                     <label>
-                      Your Email <span style={{ color: '#e11d48' }}>*</span>
+                      Email Address <span style={{ color: '#e11d48' }}>*</span>
                     </label>
                     <input
                       type="email"
@@ -243,10 +229,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <div className="form-group">
-                    <label>Requirements / Message</label>
+                    <label>Product Requirement / Message</label>
                     <textarea
                       className="form-control"
-                      placeholder="Write your requirement, stockist query, or message..."
+                      rows={4}
+                      placeholder="Specify required products (C-ONE ENZYME, AMOX ONE LB, CEFIXOR-O, FERRIMAX IRON), quantity, or delivery location..."
                       value={formData.comments}
                       onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
                       required
@@ -259,12 +246,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
                   <button
                     type="submit"
-                    className="custom-more-btn"
+                    className="hero-btn-primary"
                     style={{ width: '100%', justifyContent: 'center' }}
                     disabled={submitting}
                   >
                     <span>
-                      {submitting ? 'Sending to oneethicalpharmaceutical@gmail.com...' : 'Send Email Message'}
+                      {submitting ? 'Sending Message...' : 'Send Message'}
                       <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i>
                     </span>
                   </button>
@@ -274,11 +261,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           </div>
 
           {/* Embedded Google Map */}
-          <div className="map-container">
+          <div className="map-container" style={{ marginTop: '48px' }}>
             <iframe
               src="https://maps.google.com/maps?q=Dsidc%20Industrial%20Complex,%20Himmat%20Puri,%20Delhi%20110091&t=&z=14&ie=UTF8&iwloc=&output=embed"
               width="100%"
-              height="420"
+              height="380"
               style={{ border: 0, display: 'block' }}
               allowFullScreen={true}
               loading="lazy"
