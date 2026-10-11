@@ -3652,3 +3652,93 @@ html, body {
     max-width: 150px !important;
   }
 }
+
+
+/* =========================================================
+   SINGLE PRODUCT DETAIL IMAGE EXPANSION (NO EMPTY SPACE)
+========================================================= */
+.single-product-img-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  padding: 16px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05) !important;
+  position: sticky !important;
+  top: 90px !important;
+}
+
+.single-img-wrap {
+  background: radial-gradient(circle at center, #ffffff 40%, #f8fafc 100%) !important;
+  border-radius: 14px !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: auto !important;
+  height: auto !important;
+  margin-bottom: 20px !important;
+  border: 1px solid #f1f5f9 !important;
+  overflow: hidden !important;
+}
+
+.single-product-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 520px !important;
+  object-fit: contain !important;
+  display: block !important;
+  border-radius: 8px !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08)) !important;
+  transition: transform 0.3s ease !important;
+}
+
+.single-img-wrap:hover .single-product-img {
+  transform: scale(1.02) !important;
+}
+
+/* Mobile & Tablet Specific Expansion */
+@media (max-width: 900px) {
+  .single-product-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .single-product-img-box {
+    position: static !important;
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .single-img-wrap {
+    padding: 6px !important;
+    min-height: auto !important;
+    height: auto !important;
+    margin-bottom: 16px !important;
+  }
+
+  .single-product-img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 420px !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-product-img-box {
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .single-img-wrap {
+    padding: 4px !important;
+    border-radius: 10px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .single-product-img {
+    width: 100% !important;
+    max-height: 380px !important;
+    border-radius: 6px !important;
+  }
+}
