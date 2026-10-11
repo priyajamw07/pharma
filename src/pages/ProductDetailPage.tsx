@@ -37,11 +37,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 className="single-product-img"
               />
               <div style={{ textAlign: 'center', marginBottom: '18px', width: '100%' }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0047bb' }}>
-                  {product.mrp || 'M.R.P. Rs. 750.00'}
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', marginBottom: '4px' }}>
+                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> {product.packaging || 'Standard Ethical Packaging'}
                 </div>
-                <div style={{ fontSize: '13px', color: '#64748b' }}>
-                  Packaging: {product.packaging || '10x1x10 Tablet'}
+                <div style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>
+                  Direct Doctor & Ethical Supply
                 </div>
               </div>
               <button
@@ -49,7 +49,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 style={{ width: '100%', justifyContent: 'center' }}
                 onClick={() => onOpenEnquiry(product.name)}
               >
-                <span>Place Order <i className="fa-solid fa-cart-shopping" style={{ marginLeft: '6px' }}></i></span>
+                <span>Trade / Doctor Inquiry <i className="fa-solid fa-cart-shopping" style={{ marginLeft: '6px' }}></i></span>
               </button>
             </div>
 
@@ -124,9 +124,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               <div style={{ marginTop: '30px', padding: '20px', background: '#f8fafc', borderRadius: '8px', borderLeft: '4px solid #0047bb' }}>
                 <p style={{ margin: 0, fontSize: '14px', color: '#475569', lineHeight: '1.6' }}>
                   <strong>Marketed by:</strong> {COMPANY_INFO.name}<br />
-                  <strong>Office:</strong> {COMPANY_INFO.address}<br />
-                  <strong>Manufactured by:</strong> {COMPANY_INFO.manufacturer}<br />
-                  <strong>Distribution Enquiries:</strong> Call <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.phone}</a> or Email <a href={`mailto:${COMPANY_INFO.email}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.email}</a>.
+                  <strong>Corporate Address:</strong> {COMPANY_INFO.address}<br />
+                  <strong>Trade Enquiries:</strong> Call <a href={`tel:${COMPANY_INFO.phone}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.phone}</a> / <a href={`tel:${COMPANY_INFO.phoneAlt}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.phoneAlt}</a> or Email <a href={`mailto:${COMPANY_INFO.email}`} style={{ color: '#0047bb', fontWeight: 700 }}>{COMPANY_INFO.email}</a>.
                 </p>
               </div>
             </div>

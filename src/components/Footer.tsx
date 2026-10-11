@@ -80,13 +80,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              <div className="footer-contact-item">
-                <i className="fa-solid fa-industry"></i>
-                <div>
-                  <p style={{ fontWeight: 600, color: '#ffffff', marginBottom: '2px' }}>Manufacturing Unit</p>
-                  <p style={{ fontSize: '12px', lineHeight: '1.4', color: '#94a3b8' }}>{COMPANY_INFO.manufacturer}</p>
-                </div>
-              </div>
+
 
               <div className="footer-contact-item">
                 <i className="fa-solid fa-phone"></i>

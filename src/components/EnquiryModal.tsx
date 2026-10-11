@@ -97,7 +97,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
           ) : (
             <form onSubmit={handleSubmit}>
               <div style={{ background: '#f1f5f9', padding: '10px 14px', borderRadius: '6px', marginBottom: '16px', fontSize: '13px', color: '#334155' }}>
-                <strong>Product:</strong> {productName} (M.R.P. Rs. 750.00 / 10 Tablets)
+                <strong>Formulation:</strong> {productName}
               </div>
 
               <div className="form-group">

@@ -132,9 +132,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                         {prod.name}
                       </a>
                     </h5>
-                    {prod.mrp && (
-                      <p style={{ fontSize: '13px', fontWeight: 700, color: '#0047bb', marginBottom: '8px' }}>
-                        {prod.mrp}
+                    {prod.packaging && (
+                      <p style={{ fontSize: '12px', fontWeight: 600, color: '#64748b', marginBottom: '8px' }}>
+                        <i className="fa-solid fa-boxes-packing" style={{ marginRight: '4px' }}></i> {prod.packaging}
                       </p>
                     )}
                   </div>

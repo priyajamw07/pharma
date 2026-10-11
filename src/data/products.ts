@@ -1,4 +1,4 @@
-﻿export interface Product {
+export interface Product {
   id: string;
   slug: string;
   name: string;
@@ -9,7 +9,6 @@
   categoryName: string;
   descriptionHtml: string;
   packaging?: string;
-  mrp?: string;
   dosage?: string;
   composition?: { name: string; amount: string; rda: string }[];
   nutrition?: { parameter: string; value: string }[];
@@ -25,14 +24,13 @@ export interface Category {
 
 export const COMPANY_INFO = {
   name: 'ONE ETHICAL PHARMACEUTICAL',
-  tagline: 'Better Medicine • Healthier Tomorrow',
+  tagline: 'Better Medicine ? Healthier Tomorrow',
   shortName: 'ONE Ethical',
   address: 'Space No-48/17, First Floor, Dsidc Industrial Complex, Himmat Puri, Delhi 110091',
-  phone: '+91 88003 36704',
-  phoneAlt: '+91 99906 85530',
+  phone: '+91 92117 40315',
+  phoneAlt: '+91 72176 81647',
   email: 'oneethicalpharmaceutical@gmail.com',
-  formspreeUrl: 'https://formspree.io/f/oneethicalpharmaceutical@gmail.com',
-  manufacturer: 'Merit Healthcare (A GMP Certified Co.), 50/2 Shiv Nagar Lohari, Tehsil-Swar, Distt. Rampur (U.P.) 244924',
+  formspreeUrl: 'https://formsubmit.co/ajax/oneethicalpharmaceutical@gmail.com',
   logo: '/one_assets/logo.jpg'
 };
 
@@ -42,6 +40,12 @@ export const CATEGORIES: Record<string, Category> = {
     name: 'NUTRITIONAL SUPPORT',
     image: '/one_assets/c-one-box.jpg',
     desc: 'Advanced daily wellness, cellular bioenergetics, and multi-nutrient formulations.'
+  },
+  antibiotics: {
+    id: 'antibiotics',
+    name: 'ANTIBACTERIAL & PROBIOTIC CARE',
+    image: '/one_assets/amox-one-box.jpg',
+    desc: 'Amoxicillin + Clavulanate with Lactic Acid Bacillus probiotic protection.'
   },
   cardiac: {
     id: 'cardiac',
@@ -53,7 +57,7 @@ export const CATEGORIES: Record<string, Category> = {
     id: 'active-metabolism',
     name: 'ACTIVE METABOLISM',
     image: '/one_assets/c-one-poster.jpg',
-    desc: 'L-Carnitine, antioxidant extracts, and metabolic energy boosters.'
+    desc: 'L-Carnitine, antioxidant botanical extracts, and metabolic energy boosters.'
   },
   'general-care': {
     id: 'general-care',
@@ -74,7 +78,6 @@ export const PRODUCTS: Product[] = [
     categoryId: 'nutritional-support',
     categoryName: 'NUTRITIONAL SUPPORT',
     packaging: '10x1x10 Tablet (Strip of 10 Tablets)',
-    mrp: 'Rs. 750.00 (Per 10 Tablets) / Rs. 75.00 Per Tablet',
     dosage: 'As directed by the Specialist / Physician.',
     highlights: [
       'CoQ10: Supports heart health & energy production',
@@ -102,19 +105,55 @@ export const PRODUCTS: Product[] = [
       { parameter: 'Fat', value: '9 Kcal' }
     ],
     descriptionHtml: `
-      <p><strong>C-ONE ENZYME Tablet</strong> is a premium, scientifically formulated comprehensive nutritional health supplement manufactured by Merit Healthcare (A GMP Certified Co.) and marketed by <strong>ONE ETHICAL PHARMACEUTICAL</strong>.</p>
-      <p>It brings together the synergy of <strong>Co-enzyme Q10, Omega-3 Fatty Acids, L-Carnitine, Green Tea Extract, Lycopene, Grape Seed Extract, Vitamin E, Vitamin B1, and Vitamin B6</strong> to deliver <em>Complete Nutrition in One Tablet</em>.</p>
+      <p><strong>C-ONE ENZYME Tablet</strong> is a premium, scientifically formulated comprehensive nutritional health supplement marketed across India by <strong>ONE ETHICAL PHARMACEUTICAL</strong>.</p>
+      <p>It brings together the proven clinical synergy of <strong>Co-enzyme Q10, Omega-3 Fatty Acids, L-Carnitine, Green Tea Extract, Lycopene, Grape Seed Extract, Vitamin E, Vitamin B1, and Vitamin B6</strong> to deliver <em>Complete Nutrition in One Tablet</em>.</p>
       
       <p><strong>Clinical Benefits & Mechanisms:</strong></p>
-      <p>• <strong>CoQ10 (100 mg):</strong> Crucial for mitochondrial ATP cellular energy synthesis, cardiovascular performance, and protecting myocardium against oxidative stress.</p>
-      <p>• <strong>Omega 3 Fatty Acid (100 mg):</strong> Helps maintain healthy lipid profiles, regulates systemic inflammation, and promotes brain, cognitive, and retinal vitality.</p>
-      <p>• <strong>L-Carnitine (500 mg):</strong> Transports long-chain fatty acids into mitochondria to be burned for energy, supporting muscular stamina and recovery.</p>
-      <p>• <strong>Green Tea & Grape Seed Extract:</strong> Delivers potent proanthocyanidins and polyphenols for maximum cellular protection and vascular elasticity.</p>
-      <p>• <strong>Lycopene (5000 mcg):</strong> Strong carotenoid antioxidant neutralizing free radicals.</p>
-      <p>• <strong>Essential Vitamins B1, B6 & E:</strong> Supports neuromuscular signaling, red blood cell metabolism, and dermatological integrity.</p>
+      <p>? <strong>CoQ10 (100 mg):</strong> Crucial for mitochondrial ATP cellular energy synthesis, cardiovascular performance, and defending myocytes against oxidative degradation.</p>
+      <p>? <strong>Omega 3 Fatty Acid (100 mg):</strong> Helps maintain healthy lipid profiles, regulates systemic inflammation, and promotes brain, cognitive, and retinal vitality.</p>
+      <p>? <strong>L-Carnitine (500 mg):</strong> Transports long-chain fatty acids into mitochondria to be burned for energy, supporting stamina and muscle recovery.</p>
+      <p>? <strong>Green Tea & Grape Seed Extract:</strong> Delivers standardized proanthocyanidins and polyphenols for maximum cellular protection and vascular elasticity.</p>
+      <p>? <strong>Lycopene (5000 mcg):</strong> Potent carotenoid antioxidant neutralizing circulating free radicals.</p>
+      <p>? <strong>Essential Vitamins B1, B6 & E:</strong> Supports neuromuscular signaling, healthy red blood cell metabolism, and dermatological integrity.</p>
       
-      <p><strong>Storage:</strong> Store in a cool, dry & dark place. Protect from direct sunlight & moisture at a temperature not exceeding 25°C. Keep out of reach of children.</p>
-      <p><strong>Batch Ref:</strong> CET-092601</p>
+      <p><strong>Storage:</strong> Store in a cool, dry & dark place. Protect from direct sunlight & moisture at a temperature not exceeding 25?C. Keep out of reach of children.</p>
+    `
+  },
+  {
+    id: 'amox-one-lb',
+    slug: 'amox-one-lb-tablet',
+    name: 'AMOX ONE LB Tablet',
+    image: '/one_assets/amox-one-box.jpg',
+    bannerImage: '/one_assets/amox-one-banner.jpg',
+    posterImage: '/one_assets/amox-one-infographic.jpg',
+    categoryId: 'antibiotics',
+    categoryName: 'ANTIBACTERIAL & PROBIOTIC CARE',
+    packaging: '10x1x6 Tablets (Blister Strip of 6 Tablets)',
+    dosage: 'As directed by the Physician.',
+    highlights: [
+      'Broad Spectrum Antibacterial Action: Effective against a wide range of bacterial infections',
+      'Restores Gut Health: Lactic Acid Bacillus helps maintain healthy gut flora & prevents diarrhea',
+      'Powerful Combination: Amoxicillin + Potassium Clavulanate overcomes beta-lactamase resistance',
+      'Trusted & Safe: Rapid clinical relief, high bioavailability, and fewer recurrences'
+    ],
+    composition: [
+      { name: 'Amoxycillin Trihydrate IP', amount: '500 mg', rda: 'As per IP' },
+      { name: 'Potassium Clavulanate Diluted IP', amount: '125 mg', rda: 'As per IP' },
+      { name: 'Lactic Acid Bacillus', amount: '60 million spores', rda: 'Probiotic' },
+      { name: 'Colour: Titanium Dioxide IP', amount: 'q.s.', rda: 'Excipient' }
+    ],
+    descriptionHtml: `
+      <p><strong>AMOX ONE LB Tablet</strong> is an advanced, broad-spectrum prescription antibacterial therapy with built-in probiotic gut protection, marketed by <strong>ONE ETHICAL PHARMACEUTICAL</strong>.</p>
+      <p>Each film-coated tablet combines <strong>Amoxycillin Trihydrate IP (500 mg)</strong> with the beta-lactamase inhibitor <strong>Potassium Clavulanate IP (125 mg)</strong>, fortified with <strong>Lactic Acid Bacillus (60 million spores)</strong>.</p>
+      
+      <p><strong>Therapeutic Indications & Action:</strong></p>
+      <p>? <strong>Broad Spectrum Antibacterial Efficacy:</strong> Effectively eliminates gram-positive and gram-negative pathogens in upper & lower respiratory tract infections, sinusitis, otitis media, skin & soft tissue infections, and urinary tract infections.</p>
+      <p>? <strong>Overcomes Drug Resistance:</strong> Potassium Clavulanate inhibits bacterial beta-lactamase enzymes, restoring amoxicillin potency against resistant strains.</p>
+      <p>? <strong>Maintains Gut Flora Balance:</strong> The addition of Lactic Acid Bacillus replenishes beneficial intestinal microflora, significantly reducing antibiotic-induced gastrointestinal disturbances, bloating, and diarrhea.</p>
+      <p>? <strong>Patient Compliance:</strong> Convenient 10x1x6 blister foil packaging ensuring stability and dosage accuracy.</p>
+      
+      <p><strong>Dosage:</strong> As directed by the Physician.</p>
+      <p><strong>Storage:</strong> Store in a dry & dark place, below 25?C. Protect from direct light & moisture. Keep medicine out of reach of children.</p>
     `
   },
   {
@@ -127,7 +166,6 @@ export const PRODUCTS: Product[] = [
     categoryId: 'cardiac',
     categoryName: 'CARDIAC & VITALITY',
     packaging: '10x1x10 Tablets',
-    mrp: 'Rs. 750.00',
     dosage: '1 Tablet daily after meals or as advised by specialist.',
     highlights: [
       'Cardioprotective CoQ10 & EPA/DHA Omega-3 Complex',
@@ -158,7 +196,6 @@ export const PRODUCTS: Product[] = [
     categoryId: 'active-metabolism',
     categoryName: 'ACTIVE METABOLISM',
     packaging: '10x10 Tablets',
-    mrp: 'Rs. 750.00',
     dosage: '1 Tablet daily with water.',
     highlights: [
       '500mg High-Potency L-Carnitine for fat oxidation & energy',
@@ -188,7 +225,6 @@ export const PRODUCTS: Product[] = [
     categoryId: 'general-care',
     categoryName: 'ANTIOXIDANTS & IMMUNITY',
     packaging: '10x1x10 Tablets',
-    mrp: 'Rs. 750.00',
     dosage: 'As prescribed by the Healthcare Consultant.',
     highlights: [
       'Botanical defense with Green Tea & Grape Seed extracts',

@@ -145,15 +145,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
                 className="single-product-img"
               />
               <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                <span style={{ fontSize: '20px', fontWeight: 800, color: '#0047bb' }}>M.R.P. Rs. 750.00</span>
-                <span style={{ fontSize: '13px', color: '#64748b', display: 'block' }}>Per 10 Tablets (U.S.P. Rs. 75.00 / Tablet)</span>
+                <span style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', display: 'block' }}>
+                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> 10x1x10 Tablets Pack
+                </span>
+                <span style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>Ethical Doctor & Trade Supply</span>
               </div>
               <button
                 className="custom-more-btn"
                 style={{ width: '100%', justifyContent: 'center' }}
                 onClick={() => onOpenEnquiry('C-ONE ENZYME Tablet')}
               >
-                <span>Place Order <i className="fa-solid fa-cart-shopping" style={{ marginLeft: '6px' }}></i></span>
+                <span>Trade / Doctor Inquiry <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i></span>
               </button>
             </div>
 
@@ -225,6 +227,97 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
         </div>
       </section>
 
+
+      {/* 2B. FLAGSHIP PRODUCT SPOTLIGHT - AMOX ONE LB */}
+      <section className="section-padding common-bg">
+        <div className="container">
+          <div className="common-left-title-div">
+            <div>
+              <div className="small-title">Broad Spectrum Antibacterial & Probiotic Support</div>
+              <h2 className="big-title">AMOX ONE LB Tablet</h2>
+            </div>
+            <a
+              href="/products/amox-one-lb-tablet"
+              onClick={(e) => { e.preventDefault(); onNavigate('/products/amox-one-lb-tablet'); }}
+              className="common-left-title-btn"
+            >
+              Full Product Page <i className="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div className="single-product-layout">
+            <div className="single-product-img-box">
+              <img
+                src="/one_assets/amox-one-box.jpg"
+                alt="AMOX ONE LB Box"
+                className="single-product-img"
+              />
+              <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                <span style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', display: 'block' }}>
+                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> 10x1x6 Tablets Strip Pack
+                </span>
+                <span style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>Prescription Ethical Supply</span>
+              </div>
+              <button
+                className="custom-more-btn"
+                style={{ width: '100%', justifyContent: 'center' }}
+                onClick={() => onOpenEnquiry('AMOX ONE LB Tablet')}
+              >
+                <span>Trade / Doctor Inquiry <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i></span>
+              </button>
+            </div>
+
+            <div className="single-details-content">
+              <span className="product-category-tag" style={{ fontSize: '13px' }}>
+                Amoxycillin (500mg) + Clavulanate (125mg) & Lactic Acid Bacillus (60M)
+              </span>
+              <h2>Fight Infection... Restore Balance...</h2>
+              <p className="common-des">
+                Synergistic broad-spectrum antimicrobial formulation fortified with Lactic Acid Bacillus to eradicate bacterial pathogens while safeguarding digestive microflora against dysbiosis.
+              </p>
+
+              <div className="benefits-grid">
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <i className="fa-solid fa-shield-virus" style={{ color: '#0047bb', marginTop: '4px', fontSize: '18px' }}></i>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Broad Spectrum Action</strong>
+                    <span style={{ fontSize: '13px', color: '#64748b' }}>Effective against respiratory, ENT & tissue infections</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <i className="fa-solid fa-bacteria" style={{ color: '#10b981', marginTop: '4px', fontSize: '18px' }}></i>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Gut Flora Protection</strong>
+                    <span style={{ fontSize: '13px', color: '#64748b' }}>60M Lactic Acid Bacillus prevents antibiotic diarrhea</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <i className="fa-solid fa-capsules" style={{ color: '#e11d48', marginTop: '4px', fontSize: '18px' }}></i>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Overcomes Resistance</strong>
+                    <span style={{ fontSize: '13px', color: '#64748b' }}>Clavulanate neutralizes bacterial beta-lactamase</span>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <i className="fa-solid fa-handshake-angle" style={{ color: '#f59e0b', marginTop: '4px', fontSize: '18px' }}></i>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Trusted & Safe Therapy</strong>
+                    <span style={{ fontSize: '13px', color: '#64748b' }}>Rapid clinical relief and high patient compliance</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', borderLeft: '4px solid #0047bb', fontSize: '13px' }}>
+                <strong>Quality Assurance:</strong> Manufactured under strict GMP standards ? Marketed across India by {COMPANY_INFO.name}.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. ABOUT ONE ETHICAL PHARMACEUTICAL */}
       <section className="about-us-section section-padding common-bg">
         <div className="container">
@@ -245,7 +338,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
                 <strong>{COMPANY_INFO.name}</strong> is committed to the founding motto <em>"{COMPANY_INFO.tagline}"</em>. Based in Delhi at Dsidc Industrial Complex, Himmat Puri, we specialize in high-efficacy nutraceuticals, advanced enzymes, and cardioprotective healthcare formulations.
               </p>
               <p className="common-des">
-                Partnered with GMP-certified manufacturing units like Merit Healthcare, every batch undergoes stringent analytical validation to ensure accurate active compound delivery, bio-availability, and patient compliance.
+                Operating under strict ethical and Good Manufacturing Practices (GMP), every batch undergoes stringent analytical validation to ensure accurate active compound delivery, bio-availability, and patient compliance.
               </p>
               <a
                 href="/about-us"

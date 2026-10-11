@@ -98,20 +98,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Manufacturing Facility */}
-              <div className="contact-info-item">
-                <div className="contact-icon-bubble">
-                  <i className="fa-solid fa-industry"></i>
-                </div>
-                <div>
-                  <h5 style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>
-                    Manufacturing Plant
-                  </h5>
-                  <p style={{ margin: 0, fontSize: '14px', color: '#475569', lineHeight: '1.5' }}>
-                    {COMPANY_INFO.manufacturer}
-                  </p>
-                </div>
-              </div>
+
 
               {/* Phone Numbers */}
               <div className="contact-info-item">
