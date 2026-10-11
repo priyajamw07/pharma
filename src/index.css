@@ -3584,3 +3584,71 @@ html, body {
     display: inline-block !important;
   }
 }
+
+
+/* =========================================================
+   GENEROUS PADDING FOR LOGO & HAMBURGER (NO FLUSH EDGES)
+========================================================= */
+.navbar-main {
+  padding: 14px 0 !important;
+}
+
+.navbar-inner {
+  padding-left: 28px !important;
+  padding-right: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .navbar-main {
+    padding: 12px 0 !important;
+  }
+
+  .navbar-inner {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .navbar-brand-link {
+    display: flex !important;
+    align-items: center !important;
+    padding-left: 2px !important;
+  }
+
+  .navbar-logo-img {
+    height: 42px !important;
+    max-width: 165px !important;
+  }
+
+  .header-right-actions {
+    display: flex !important;
+    align-items: center !important;
+    padding-right: 2px !important;
+  }
+
+  .mobile-hamburger-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .navbar-logo-img {
+    height: 39px !important;
+    max-width: 150px !important;
+  }
+}
