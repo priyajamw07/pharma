@@ -67,7 +67,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     <i className="fa-solid fa-table-cells" style={{ color: '#0047bb', marginRight: '6px' }}></i>
                     Active Ingredients Composition:
                   </h4>
-                  <table className="composition-table">
+                  <div className="table-responsive"><table className="composition-table">
                     <thead>
                       <tr>
                         <th>Each Tablet Contains</th>
@@ -84,7 +84,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                         </tr>
                       ))}
                     </tbody>
-                  </table>
+                  </table></div>
                   <p style={{ fontSize: '12px', color: '#64748b', fontStyle: 'italic' }}>
                     **Daily Value not established. (% RDA calculated basis ICMR guidelines. Appropriate overages of vitamins added to compensate for loss on storage.)
                   </p>
@@ -144,7 +144,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+          <div className="infographics-grid">
             <div style={{ background: '#fff', borderRadius: '12px', padding: '16px', border: '1px solid #e2e8f0', boxShadow: '0 4px 15px rgba(0,0,0,0.04)' }}>
               <img
                 src="/one_assets/c-one-banner.jpg"

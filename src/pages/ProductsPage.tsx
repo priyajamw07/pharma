@@ -44,8 +44,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
       <section className="section-padding">
         <div className="container">
           {/* Category Filter Pills & Search */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '36px' }}>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <div className="product-filters-wrap">
+            <div className="category-pills-row">
               <button
                 onClick={() => setSelectedFilter('all')}
                 style={{
@@ -85,7 +85,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             </div>
 
             {/* Quick Search Box */}
-            <div style={{ position: 'relative', width: '280px' }}>
+            <div className="search-box-wrap">
               <input
                 type="text"
                 placeholder="Search formulations..."

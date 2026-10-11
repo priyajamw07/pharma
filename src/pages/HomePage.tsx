@@ -75,7 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
               <p className="common-des" style={{ fontSize: '16px', marginBottom: '28px' }}>
                 {slide.description}
               </p>
-              <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div className="hero-btn-group">
                 <a
                   href={slide.link}
                   onClick={(e) => { e.preventDefault(); onNavigate(slide.link); }}
@@ -167,7 +167,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
               </p>
 
               {/* 6 Key Benefits Highlights */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px', margin: '24px 0' }}>
+              <div className="benefits-grid">
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                   <i className="fa-solid fa-heart-pulse" style={{ color: '#e11d48', marginTop: '4px', fontSize: '18px' }}></i>
                   <div>
