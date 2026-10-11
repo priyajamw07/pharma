@@ -1,42 +1,42 @@
-﻿import React, { useState, useEffect } from 'react';
-import { CATEGORIES, COMPANY_INFO } from '../data/products';
+import React, { useState, useEffect } from 'react';
+import { CATEGORIES, PRODUCTS, COMPANY_INFO } from '../data/products';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
-  onOpenEnquiry: (productName?: string) => void;
 }
 
+// 1. Hero Slides matching the exact 3 slides from Jannocks Pharma
 const HERO_SLIDES = [
   {
-    badge: 'Clinical Excellence • Doctor Endorsed Care',
-    heading: 'Expert Medical Guidance For A',
-    highlight: 'Healthier, Vibrant Tomorrow.',
-    description: 'ONE ETHICAL PHARMACEUTICAL collaborates with medical specialists, physicians, and researchers across India to deliver proven therapeutic formulations and nutritional care.',
-    btnText: 'Consult Our Formulations',
+    badge: 'Clinical Excellence ? Better Medicine',
+    heading: 'High Quality and Affordable Medicines To',
+    highlight: 'Improve Quality Of Life.',
+    description: 'ONE ETHICAL PHARMACEUTICAL provides high-efficacy ranges of pharmaceutical formulations, strict Good Manufacturing Practices (GMP), and quality patient care across India.',
+    btnText: 'View Products',
     link: '/products',
     image: '/one_assets/doctor-hero1.jpg'
   },
   {
-    badge: 'Dedicated Healthcare & Research Team',
-    heading: 'Physician Driven Science,',
-    highlight: 'Uncompromising Patient Outcomes.',
-    description: 'Our team of experienced medical professionals and pharmaceutical scientists uphold strict ethical guidelines to ensure high-potency healthcare delivery.',
-    btnText: 'About Our Medical Vision',
+    badge: 'Human Values & Ethical Standards',
+    heading: 'Maintaining Highest Standards and Human Values For',
+    highlight: 'Customer Satisfaction.',
+    description: 'We adhere to stringent international standards and analytical validations to ensure accurate bio-availability, purity, and clinical efficacy.',
+    btnText: 'Know More',
     link: '/about-us',
     image: '/one_assets/doctor-hero2.jpg'
   },
   {
-    badge: 'Senior Consultant & Patient Care',
-    heading: 'Compassionate Care Paired With',
-    highlight: 'Evidence-Based Medicine.',
-    description: 'Providing doctors and patients with reliable daily wellness support, high-purity enzymes, and cardiovascular health solutions.',
-    btnText: 'Connect With Our Team',
+    badge: 'Expertise & Reliable Formulations',
+    heading: 'Experience and Expertise to Tackle',
+    highlight: 'Urgent Medical Needs.',
+    description: 'Providing doctors, hospitals, and pharmacies with trusted therapeutic ranges like C-ONE ENZYME Tablet and AMOX ONE LB Tablet.',
+    btnText: 'Contact Now',
     link: '/contact-us',
     image: '/one_assets/doctor-hero3.jpg'
   }
 ];
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -50,7 +50,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
 
   return (
     <main>
-      {/* 1. HERO SLIDER WITH DOCTORS / HEALTHCARE PROFESSIONALS */}
+      {/* =========================================================
+          SECTION 1: HERO SLIDER (matching Jannocks main-slider-section)
+      ========================================================= */}
       <section className="main-slider-section">
         <img
           src="/assets/images/plus-icon.svg"
@@ -72,7 +74,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
               <h1 className="hero-heading">
                 {slide.heading} <span className="primary-color">{slide.highlight}</span>
               </h1>
-              <p className="common-des" style={{ fontSize: '16px', marginBottom: '28px' }}>
+              <p className="common-des" style={{ fontSize: '15px', marginBottom: '28px' }}>
                 {slide.description}
               </p>
               <div className="hero-btn-group">
@@ -83,13 +85,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
                 >
                   <span>{slide.btnText} <i className="fa-solid fa-arrow-right" style={{ marginLeft: '6px' }}></i></span>
                 </a>
-                <button
-                  onClick={() => onOpenEnquiry('Doctor Consultation & Product Inquiry')}
-                  className="enquiry-btn"
-                  style={{ border: '2px solid #0047bb' }}
+                <a
+                  href="/contact-us"
+                  onClick={(e) => { e.preventDefault(); onNavigate('/contact-us'); }}
+                  className="custom-more-btn"
+                  style={{ background: '#ffffff', color: '#0047bb', border: '2px solid #0047bb' }}
                 >
-                  Doctor / Trade Inquiry
-                </button>
+                  <span>Contact Office <i className="fa-solid fa-phone" style={{ marginLeft: '6px' }}></i></span>
+                </a>
               </div>
             </div>
 
@@ -100,7 +103,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
               <img
                 key={slide.image}
                 src={slide.image}
-                alt="Medical Specialist Consultation"
+                alt="Medical Care"
                 className="slider-img"
                 style={{ borderRadius: '14px', border: '3px solid #ffffff', boxShadow: '0 12px 35px rgba(0,71,187,0.2)' }}
               />
@@ -120,245 +123,53 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
         </div>
       </section>
 
-      {/* 2. FLAGSHIP PRODUCT SPOTLIGHT - C-ONE ENZYME */}
-      <section className="section-padding">
-        <div className="container">
-          <div className="common-left-title-div">
-            <div>
-              <div className="small-title">Daily Nutrition For Better Health</div>
-              <h2 className="big-title">C-ONE ENZYME Tablet</h2>
-            </div>
-            <a
-              href="/products/c-one-enzyme-tablet"
-              onClick={(e) => { e.preventDefault(); onNavigate('/products/c-one-enzyme-tablet'); }}
-              className="common-left-title-btn"
-            >
-              Full Product Page <i className="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-
-          <div className="single-product-layout">
-            <div className="single-product-img-box">
-              <img
-                src="/one_assets/c-one-box.jpg"
-                alt="C-ONE ENZYME Box"
-                className="single-product-img"
-              />
-              <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                <span style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', display: 'block' }}>
-                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> 10x1x10 Tablets Pack
-                </span>
-                <span style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>Ethical Doctor & Trade Supply</span>
-              </div>
-              <button
-                className="custom-more-btn"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={() => onOpenEnquiry('C-ONE ENZYME Tablet')}
-              >
-                <span>Trade / Doctor Inquiry <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i></span>
-              </button>
-            </div>
-
-            <div className="single-details-content">
-              <span className="product-category-tag" style={{ fontSize: '13px' }}>
-                Complete Nutritional Support • 10x1x10 Tablet
-              </span>
-              <h2>Co-enzyme Q10, Omega 3, L-Carnitine & Antioxidant Multi-Nutrients</h2>
-              <p className="common-des">
-                Formulated to replenish vital bio-cofactors, boost cellular adenosine triphosphate (ATP) production, and defend cardiovascular pathways against free radical degradation.
-              </p>
-
-              {/* 6 Key Benefits Highlights */}
-              <div className="benefits-grid">
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-heart-pulse" style={{ color: '#e11d48', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>CoQ10 (100mg)</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Supports heart health & energy production</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-brain" style={{ color: '#0047bb', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Omega-3 (100mg)</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Good for heart, brain & eye health</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-person-running" style={{ color: '#10b981', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>L-Carnitine (500mg)</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Energy metabolism & fat utilization</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-shield-virus" style={{ color: '#f59e0b', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Vitamins & Antioxidants</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Boost immunity & protect cells</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-leaf" style={{ color: '#16a34a', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Green Tea & Grape Seed</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Natural botanical antioxidants</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-dna" style={{ color: '#8b5cf6', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Vitamins B1, B6 & E</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Nerve, skin & metabolic wellness</span>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', borderLeft: '4px solid #0047bb', fontSize: '13px' }}>
-                <strong>Quality Assurance:</strong> Manufactured in a GMP Certified facility • Marketed by {COMPANY_INFO.name}.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* 2B. FLAGSHIP PRODUCT SPOTLIGHT - AMOX ONE LB */}
-      <section className="section-padding common-bg">
-        <div className="container">
-          <div className="common-left-title-div">
-            <div>
-              <div className="small-title">Broad Spectrum Antibacterial & Probiotic Support</div>
-              <h2 className="big-title">AMOX ONE LB Tablet</h2>
-            </div>
-            <a
-              href="/products/amox-one-lb-tablet"
-              onClick={(e) => { e.preventDefault(); onNavigate('/products/amox-one-lb-tablet'); }}
-              className="common-left-title-btn"
-            >
-              Full Product Page <i className="fa-solid fa-arrow-right"></i>
-            </a>
-          </div>
-
-          <div className="single-product-layout">
-            <div className="single-product-img-box">
-              <img
-                src="/one_assets/amox-one-box.jpg"
-                alt="AMOX ONE LB Box"
-                className="single-product-img"
-              />
-              <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-                <span style={{ fontSize: '15px', fontWeight: 700, color: '#0047bb', display: 'block' }}>
-                  <i className="fa-solid fa-boxes-packing" style={{ marginRight: '6px' }}></i> 10x1x6 Tablets Strip Pack
-                </span>
-                <span style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600 }}>Prescription Ethical Supply</span>
-              </div>
-              <button
-                className="custom-more-btn"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={() => onOpenEnquiry('AMOX ONE LB Tablet')}
-              >
-                <span>Trade / Doctor Inquiry <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i></span>
-              </button>
-            </div>
-
-            <div className="single-details-content">
-              <span className="product-category-tag" style={{ fontSize: '13px' }}>
-                Amoxycillin (500mg) + Clavulanate (125mg) & Lactic Acid Bacillus (60M)
-              </span>
-              <h2>Fight Infection... Restore Balance...</h2>
-              <p className="common-des">
-                Synergistic broad-spectrum antimicrobial formulation fortified with Lactic Acid Bacillus to eradicate bacterial pathogens while safeguarding digestive microflora against dysbiosis.
-              </p>
-
-              <div className="benefits-grid">
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-shield-virus" style={{ color: '#0047bb', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Broad Spectrum Action</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Effective against respiratory, ENT & tissue infections</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-bacteria" style={{ color: '#10b981', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Gut Flora Protection</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>60M Lactic Acid Bacillus prevents antibiotic diarrhea</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-capsules" style={{ color: '#e11d48', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Overcomes Resistance</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Clavulanate neutralizes bacterial beta-lactamase</span>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <i className="fa-solid fa-handshake-angle" style={{ color: '#f59e0b', marginTop: '4px', fontSize: '18px' }}></i>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '14px', color: '#0f172a' }}>Trusted & Safe Therapy</strong>
-                    <span style={{ fontSize: '13px', color: '#64748b' }}>Rapid clinical relief and high patient compliance</span>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', borderLeft: '4px solid #0047bb', fontSize: '13px' }}>
-                <strong>Quality Assurance:</strong> Manufactured under strict GMP standards ? Marketed across India by {COMPANY_INFO.name}.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. ABOUT ONE ETHICAL PHARMACEUTICAL */}
+      {/* =========================================================
+          SECTION 2: ABOUT COMPANY (matching Jannocks about-us-section)
+      ========================================================= */}
       <section className="about-us-section section-padding common-bg">
         <div className="container">
           <div className="about-grid">
-            <div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img
-                src="/one_assets/doctor-hero2.jpg"
-                alt="ONE Ethical Medical Specialists"
+                src="/assets/images/about.png"
+                alt="ONE ETHICAL PHARMACEUTICAL"
                 className="about-img"
+                style={{ maxHeight: '420px', objectFit: 'contain' }}
               />
             </div>
+
             <div>
               <div className="small-title">Corporate Profile</div>
               <h2 className="big-title" style={{ marginBottom: '18px' }}>
                 {COMPANY_INFO.name}
               </h2>
               <p className="common-des">
-                <strong>{COMPANY_INFO.name}</strong> is committed to the founding motto <em>"{COMPANY_INFO.tagline}"</em>. Based in Delhi at Dsidc Industrial Complex, Himmat Puri, we specialize in high-efficacy nutraceuticals, advanced enzymes, and cardioprotective healthcare formulations.
+                <strong>{COMPANY_INFO.name}</strong> is a reliable leading organization, which is engaged in providing highly effective ranges of Pharmaceutical Medicines. We have a wide range of healthcare products: Capsules, Tablets, and other Pharmaceutical Products. All these products are processed under the strict guidelines of international standards, following the rules of appropriate composition of compounds.
               </p>
               <p className="common-des">
-                Operating under strict ethical and Good Manufacturing Practices (GMP), every batch undergoes stringent analytical validation to ensure accurate active compound delivery, bio-availability, and patient compliance.
+                Based at Space No-48/17, First Floor, Dsidc Industrial Complex, Himmat Puri, Delhi 110091, we ensure that every formulation delivers uncompromised bio-availability, purity, and clinical efficacy to help patients lead active, healthier lives.
               </p>
               <a
                 href="/about-us"
                 onClick={(e) => { e.preventDefault(); onNavigate('/about-us'); }}
                 className="custom-more-btn"
               >
-                <span>Read Corporate Overview <i className="fa-solid fa-arrow-right" style={{ marginLeft: '6px' }}></i></span>
+                <span>Read More <i className="fa-solid fa-arrow-right" style={{ marginLeft: '6px' }}></i></span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. EXPLORE OUR PORTFOLIO */}
-      <section className="section-padding">
+      {/* =========================================================
+          SECTION 3: OUR RANGE OF SOLUTIONS (matching Jannocks our-range)
+      ========================================================= */}
+      <section className="section-padding our-range common-section">
         <div className="container">
           <div className="common-left-title-div">
             <div>
-              <div className="small-title">Therapeutic Ranges</div>
-              <h2 className="big-title">Our Solutions</h2>
+              <h2 className="small-title">Explore & Trust</h2>
+              <p className="big-title">Our Range of Solutions</p>
             </div>
             <a
               href="/products"
@@ -377,13 +188,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
                 onClick={(e) => { e.preventDefault(); onNavigate(`/products-list/${cat.id}`); }}
                 className="category-card"
               >
-                <img
-                  src={cat.image}
-                  alt={cat.name}
-                  className="category-img"
-                />
+                <div style={{ height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8fafc', borderRadius: '8px', overflow: 'hidden', marginBottom: '12px' }}>
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="category-img"
+                    style={{ maxHeight: '130px', width: '100%', objectFit: 'contain' }}
+                  />
+                </div>
                 <h4 className="category-card-title">{cat.name}</h4>
-                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '8px', lineHeight: '1.4' }}>
+                <p style={{ fontSize: '12px', color: '#64748b', marginTop: '6px', lineHeight: '1.4' }}>
                   {cat.desc}
                 </p>
               </a>
@@ -392,66 +206,192 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenEnquiry })
         </div>
       </section>
 
-      {/* 5. WHY CHOOSE ONE ETHICAL PHARMACEUTICAL */}
-      <section className="section-padding common-bg">
+      {/* =========================================================
+          SECTION 4: OUR PRODUCTS (matching Jannocks products-section)
+      ========================================================= */}
+      <section className="section-padding products-section common-bg">
+        <div className="container">
+          <div className="common-left-title-div">
+            <div>
+              <h2 className="small-title">Quality & Reliable</h2>
+              <p className="big-title">Our Products</p>
+            </div>
+            <a
+              href="/products"
+              onClick={(e) => { e.preventDefault(); onNavigate('/products'); }}
+              className="common-left-title-btn"
+            >
+              View All <i className="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div className="products-grid">
+            {PRODUCTS.map((prod) => (
+              <div key={prod.slug} className="product-card">
+                <a
+                  href={`/products/${prod.slug}`}
+                  onClick={(e) => { e.preventDefault(); onNavigate(`/products/${prod.slug}`); }}
+                >
+                  <div className="product-img-wrap" style={{ height: '210px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#ffffff', padding: '10px' }}>
+                    <img
+                      src={prod.image}
+                      alt={prod.name}
+                      className="product-card-img"
+                      style={{ maxHeight: '190px', width: '100%', objectFit: 'contain' }}
+                    />
+                    <div className="product-plus-badge">
+                      <i className="fa-solid fa-plus"></i>
+                    </div>
+                  </div>
+                </a>
+
+                <div className="product-info-wrap">
+                  <div>
+                    <span className="product-category-tag">{prod.categoryName}</span>
+                    <h5 className="product-card-name">
+                      <a
+                        href={`/products/${prod.slug}`}
+                        onClick={(e) => { e.preventDefault(); onNavigate(`/products/${prod.slug}`); }}
+                      >
+                        {prod.name}
+                      </a>
+                    </h5>
+                    {prod.packaging && (
+                      <p style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px', fontWeight: 500 }}>
+                        <i className="fa-solid fa-boxes-packing" style={{ marginRight: '4px' }}></i> {prod.packaging}
+                      </p>
+                    )}
+                  </div>
+
+                  <div style={{ marginTop: '12px' }}>
+                    <a
+                      href={`/products/${prod.slug}`}
+                      onClick={(e) => { e.preventDefault(); onNavigate(`/products/${prod.slug}`); }}
+                      className="product-read-more-btn"
+                      style={{ width: '100%', justifyContent: 'center' }}
+                    >
+                      Read Details <i className="fa-solid fa-arrow-right" style={{ fontSize: '11px' }}></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SECTION 5: WHY CHOOSE US (matching Jannocks why-choose-us-section)
+      ========================================================= */}
+      <section className="section-padding why-choose-us-section">
         <div className="container">
           <div className="why-choose-grid">
-            <div className="why-choose-image">
+            <div className="why-choose-image" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img
-                src="/one_assets/doctor-hero3.jpg"
-                alt="ONE Ethical Consultation"
+                src="/assets/images/why-choose-img.jpg"
+                alt="Why Choose ONE Ethical"
+                className="why-choose-img"
                 style={{ borderRadius: '12px', width: '100%', boxShadow: '0 10px 30px rgba(0,71,187,0.08)' }}
               />
             </div>
 
             <div>
-              <div className="small-title">Why Partner With Us</div>
-              <h2 className="big-title">What Makes ONE Ethical Different?</h2>
+              <div className="small-title">Why Choose Us</div>
+              <h2 className="big-title">What makes us better than Others.?</h2>
               <p className="common-des" style={{ marginTop: '10px' }}>
                 We bridge clinical excellence with integrity, ensuring doctors, pharmacists, and patients receive world-class healthcare formulations.
               </p>
 
               <div className="why-choose-features">
-                <div className="why-choose-box">
-                  <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '10px' }}>
-                    <i className="fa-solid fa-award"></i>
+                <div className="why-choose-box text-center">
+                  <div className="why-chooose-icons" style={{ marginBottom: '12px' }}>
+                    <img
+                      src="/assets/images/quality-assurance.png"
+                      alt="Quality Assurance"
+                      className="why-choose-icon"
+                    />
                   </div>
-                  <h3 className="why-choose-title">GMP Certified Quality</h3>
+                  <h3 className="why-choose-title">Quality Assurance</h3>
                   <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                    Formulations produced under strict Good Manufacturing Practices and hygienic compliance.
+                    We Ensure that Development & Packaging of our products is done under hygienic environment.
                   </p>
                 </div>
 
-                <div className="why-choose-box">
-                  <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '10px' }}>
-                    <i className="fa-solid fa-handshake"></i>
+                <div className="why-choose-box text-center">
+                  <div className="why-chooose-icons" style={{ marginBottom: '12px' }}>
+                    <img
+                      src="/assets/images/our-strengths.png"
+                      alt="Our Strengths"
+                      className="why-choose-icon"
+                    />
                   </div>
-                  <h3 className="why-choose-title">Ethical Business</h3>
+                  <h3 className="why-choose-title">Our Strengths</h3>
                   <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                    Zero tolerance on ingredient purity, accurate label claims, and fair partnership pricing.
+                    Our Business Ethics, Zero Tolerance Quality Policy and a Highly Qualified Team are Our Strengths.
                   </p>
                 </div>
 
-                <div className="why-choose-box">
-                  <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '10px' }}>
-                    <i className="fa-solid fa-flask-vial"></i>
+                <div className="why-choose-box text-center">
+                  <div className="why-chooose-icons" style={{ marginBottom: '12px' }}>
+                    <img
+                      src="/assets/images/passion-excellence.png"
+                      alt="Passion For Excellence"
+                      className="why-choose-icon"
+                    />
                   </div>
-                  <h3 className="why-choose-title">Bio-Availability</h3>
+                  <h3 className="why-choose-title">Passion For Excellence</h3>
                   <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                    Standardized extracts ensuring optimal absorption and physiological impact.
+                    We tenaciously chase excellence through continuous improvement in all our projects, processes and products.
                   </p>
                 </div>
 
-                <div className="why-choose-box">
-                  <div style={{ fontSize: '32px', color: '#0047bb', marginBottom: '10px' }}>
-                    <i className="fa-solid fa-headset"></i>
+                <div className="why-choose-box text-center">
+                  <div className="why-chooose-icons" style={{ marginBottom: '12px' }}>
+                    <img
+                      src="/assets/images/customer-focus.png"
+                      alt="Customer Focus"
+                      className="why-choose-icon"
+                    />
                   </div>
-                  <h3 className="why-choose-title">Customer Support</h3>
+                  <h3 className="why-choose-title">Customer Focus</h3>
                   <p className="common-des" style={{ fontSize: '13px', margin: 0 }}>
-                    Dedicated distributor support and rapid order dispatch from Delhi industrial hub.
+                    We believe in understanding and meeting customer needs in a professional and responsive manner.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================
+          SECTION 6: QUICK CONTACT BANNER (matching Jannocks quick-contact-section)
+      ========================================================= */}
+      <section className="quick-contact-section">
+        <div className="container">
+          <div className="content">
+            <div className="text-cnt">
+              <h3 className="heading">Have Questions?</h3>
+              <p className="text">
+                Our measurement of success is our customers. We succeed when they succeed. We are committed to solving current and future needs with innovation.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <a
+                href={`tel:${COMPANY_INFO.phone}`}
+                className="custom-more-btn call-now-btn"
+                title="Call Now"
+              >
+                <span>Call Now <i className="fa-solid fa-phone" style={{ marginLeft: '6px' }}></i></span>
+              </a>
+              <a
+                href="/contact-us"
+                onClick={(e) => { e.preventDefault(); onNavigate('/contact-us'); }}
+                className="custom-more-btn"
+                style={{ background: 'transparent', border: '2px solid #ffffff', color: '#ffffff' }}
+              >
+                <span>Contact Us <i className="fa-solid fa-arrow-right" style={{ marginLeft: '6px' }}></i></span>
+              </a>
             </div>
           </div>
         </div>

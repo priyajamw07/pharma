@@ -229,7 +229,7 @@ img {
   transform: translateX(0);
 }
 
-.enquiry-btn {
+.header-call-btn, .enquiry-btn {
   background: #ffffff;
   color: var(--primary-color) !important;
   font-weight: 700;
@@ -245,7 +245,7 @@ img {
   border: none;
 }
 
-.enquiry-btn:hover {
+.header-call-btn:hover, .enquiry-btn:hover {
   background: var(--dark-color);
   color: #ffffff !important;
 }
@@ -1733,7 +1733,7 @@ html, body {
   }
 
   .hero-btn-group .custom-more-btn,
-  .hero-btn-group .enquiry-btn {
+  .hero-btn-group .header-call-btn, .enquiry-btn {
     width: 100%;
     justify-content: center;
     text-align: center;

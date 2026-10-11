@@ -4,10 +4,9 @@ import { CATEGORIES, PRODUCTS, COMPANY_INFO } from '../data/products';
 interface HeaderProps {
   currentPath: string;
   onNavigate: (path: string) => void;
-  onOpenEnquiry: (productName?: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenEnquiry }) => {
+export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileProductsExpanded, setMobileProductsExpanded] = useState(false);
 
@@ -202,12 +201,14 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenE
             </li>
           </ul>
 
-          <button
-            className="enquiry-btn"
-            onClick={() => onOpenEnquiry('C-ONE ENZYME Tablet')}
+          <a
+            href={`tel:${COMPANY_INFO.phone}`}
+            className="header-call-btn"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            Order C-ONE
-          </button>
+            <i className="fa-solid fa-phone"></i>
+            <span>{COMPANY_INFO.phone}</span>
+          </a>
         </div>
       </nav>
 
@@ -235,18 +236,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate, onOpenE
           </button>
         </div>
 
-        <div className="mobile-drawer-actions">
-          <button
-            className="custom-more-btn"
-            style={{ width: '100%', justifyContent: 'center', padding: '11px 16px', fontSize: '13px' }}
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenEnquiry('C-ONE ENZYME Tablet');
-            }}
-          >
-            <span><i className="fa-solid fa-pills" style={{ marginRight: '6px' }}></i> Order C-ONE Tablet</span>
-          </button>
-        </div>
+
 
         <div className="mobile-drawer-body">
           <ul className="mobile-drawer-nav">

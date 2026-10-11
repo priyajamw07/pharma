@@ -1,7 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { EnquiryModal } from './components/EnquiryModal';
 import { COMPANY_INFO } from './data/products';
 
 import { HomePage } from './pages/HomePage';
@@ -13,8 +12,6 @@ import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>(window.location.pathname || '/');
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProductForModal, setSelectedProductForModal] = useState<string>('C-ONE ENZYME Tablet');
 
   // Handle client-side routing & browser history
   useEffect(() => {
@@ -43,20 +40,16 @@ export const App: React.FC = () => {
     else if (path === '/contact-us') document.title = `Contact Us | ${COMPANY_INFO.name}`;
   };
 
-  const openEnquiry = (productName?: string) => {
-    setSelectedProductForModal(productName || 'C-ONE ENZYME Tablet');
-    setModalOpen(true);
-  };
 
   const renderContent = () => {
     if (currentPath === '/' || currentPath === '') {
-      return <HomePage onNavigate={navigate} onOpenEnquiry={openEnquiry} />;
+      return <HomePage onNavigate={navigate} />;
     }
     if (currentPath === '/about-us') {
       return <AboutPage onNavigate={navigate} />;
     }
     if (currentPath === '/products') {
-      return <ProductsPage onNavigate={navigate} onOpenEnquiry={openEnquiry} />;
+      return <ProductsPage onNavigate={navigate} />;
     }
     if (currentPath.startsWith('/products-list/')) {
       const categorySlug = currentPath.replace('/products-list/', '');
@@ -64,7 +57,7 @@ export const App: React.FC = () => {
         <ProductsPage
           currentCategory={categorySlug}
           onNavigate={navigate}
-          onOpenEnquiry={openEnquiry}
+         
         />
       );
     }
@@ -74,7 +67,7 @@ export const App: React.FC = () => {
         <ProductDetailPage
           slug={productSlug}
           onNavigate={navigate}
-          onOpenEnquiry={openEnquiry}
+         
         />
       );
     }
@@ -86,7 +79,7 @@ export const App: React.FC = () => {
     }
 
     // Default fallback
-    return <HomePage onNavigate={navigate} onOpenEnquiry={openEnquiry} />;
+    return <HomePage onNavigate={navigate} />;
   };
 
   return (
@@ -94,7 +87,7 @@ export const App: React.FC = () => {
       <Header
         currentPath={currentPath}
         onNavigate={navigate}
-        onOpenEnquiry={openEnquiry}
+       
       />
 
       {renderContent()}
@@ -113,12 +106,7 @@ export const App: React.FC = () => {
         <i className="fab fa-whatsapp"></i>
       </a>
 
-      {/* Order / Enquiry Form Modal */}
-      <EnquiryModal
-        isOpen={modalOpen}
-        productName={selectedProductForModal}
-        onClose={() => setModalOpen(false)}
-      />
+
     </div>
   );
 };

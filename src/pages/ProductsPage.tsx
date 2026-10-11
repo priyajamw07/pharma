@@ -5,13 +5,11 @@ import { CATEGORIES, PRODUCTS } from '../data/products';
 interface ProductsPageProps {
   currentCategory?: string;
   onNavigate: (path: string) => void;
-  onOpenEnquiry: (productName?: string) => void;
 }
 
 export const ProductsPage: React.FC<ProductsPageProps> = ({
   currentCategory,
   onNavigate,
-  onOpenEnquiry
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState<string>(currentCategory || 'all');
@@ -139,30 +137,15 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                     )}
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px' }}>
+                  <div style={{ marginTop: '12px' }}>
                     <a
                       href={`/products/${prod.slug}`}
                       onClick={(e) => { e.preventDefault(); onNavigate(`/products/${prod.slug}`); }}
                       className="product-read-more-btn"
+                      style={{ width: '100%', justifyContent: 'center' }}
                     >
                       Read Details <i className="fa-solid fa-arrow-right" style={{ fontSize: '11px' }}></i>
                     </a>
-
-                    <button
-                      onClick={() => onOpenEnquiry(prod.name)}
-                      style={{
-                        background: 'transparent',
-                        border: '1px solid #0047bb',
-                        color: '#0047bb',
-                        padding: '4px 12px',
-                        borderRadius: '4px',
-                        fontSize: '12px',
-                        fontWeight: 700,
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Order
-                    </button>
                   </div>
                 </div>
               </div>

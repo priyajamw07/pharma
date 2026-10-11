@@ -40,7 +40,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           mobile: formData.mobile,
           email: formData.email,
           message: formData.comments,
-          _subject: `New Contact Inquiry from ${formData.name} (${formData.mobile})`,
+          _subject: `New Message from ${formData.name} (${formData.mobile})`,
           company: COMPANY_INFO.name
         })
       });
@@ -49,14 +49,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
         setSubmitted(true);
       } else {
         // Fallback: Opens default email client with prefilled details directly to oneethicalpharmaceutical@gmail.com
-        const subject = encodeURIComponent(`Contact Inquiry from ${formData.name}`);
+        const subject = encodeURIComponent(`Message from ${formData.name}`);
         const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.comments}`);
         window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
       }
     } catch (err) {
       // Direct mailto fallback so user request always reaches oneethicalpharmaceutical@gmail.com
-      const subject = encodeURIComponent(`Contact Inquiry from ${formData.name}`);
+      const subject = encodeURIComponent(`Message from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nMessage: ${formData.comments}`);
       window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitted(true);
@@ -174,7 +174,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
 
             {/* Right: Contact Form */}
             <div className="form-card">
-              <div className="small-title">Distribution & Inquiries</div>
+              <div className="small-title">Corporate Office Contact</div>
               <h2 className="big-title" style={{ fontSize: '26px', marginBottom: '8px' }}>
                 Send An Email Message
               </h2>
@@ -185,7 +185,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '40px 20px', background: '#f0fdf4', borderRadius: '10px' }}>
                   <i className="fa-solid fa-circle-check" style={{ fontSize: '48px', color: '#16a34a', marginBottom: '16px' }}></i>
-                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Inquiry Sent Successfully!</h3>
+                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Message Sent Successfully!</h3>
                   <p style={{ color: '#15803d', marginTop: '8px' }}>
                     Thank you, {formData.name}. Your message has been routed to <strong>{COMPANY_INFO.email}</strong>.
                   </p>
@@ -246,7 +246,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     <label>Requirements / Message</label>
                     <textarea
                       className="form-control"
-                      placeholder="Inquire about C-ONE ENZYME stockist availability, orders, or dealership..."
+                      placeholder="Write your requirement, stockist query, or message..."
                       value={formData.comments}
                       onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
                       required
