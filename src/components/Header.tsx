@@ -84,7 +84,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <li className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>
                 <a
                   href="/"
-                  className="nav-link"
+                  className="nav-link" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}
                   onClick={(e) => { e.preventDefault(); handleNav('/'); }}
                 >
                   Home
@@ -94,7 +94,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <li className={`nav-item ${currentPath === '/about-us' ? 'active' : ''}`}>
                 <a
                   href="/about-us"
-                  className="nav-link"
+                  className="nav-link" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}
                   onClick={(e) => { e.preventDefault(); handleNav('/about-us'); }}
                 >
                   About Us
@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <li className={`nav-item ${currentPath === '/products' || currentPath.startsWith('/products/') ? 'active' : ''}`}>
                 <a
                   href="/products"
-                  className="nav-link highlight-link"
+                  className="nav-link highlight-link" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}
                   onClick={(e) => { e.preventDefault(); handleNav('/products'); }}
                 >
                   <i className="fa-solid fa-capsules" style={{ marginRight: '6px' }}></i>
@@ -115,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <li className={`nav-item ${currentPath === '/career' ? 'active' : ''}`}>
                 <a
                   href="/career"
-                  className="nav-link"
+                  className="nav-link" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}
                   onClick={(e) => { e.preventDefault(); handleNav('/career'); }}
                 >
                   Careers
@@ -125,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <li className={`nav-item ${currentPath === '/contact-us' ? 'active' : ''}`}>
                 <a
                   href="/contact-us"
-                  className="nav-link"
+                  className="nav-link" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}
                   onClick={(e) => { e.preventDefault(); handleNav('/contact-us'); }}
                 >
                   Contact Us
@@ -142,7 +142,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               title="Call for product order and delivery"
             >
               <i className="fa-solid fa-phone-volume"></i>
-              <span className="btn-call-inline">Order: {COMPANY_INFO.phone}</span>
+              <span className="btn-call-inline" style={{ whiteSpace: "nowrap", wordBreak: "keep-all" }}>Order: +91 92117 40315</span>
             </a>
 
             {/* Mobile Menu Hamburger Toggle */}
@@ -204,7 +204,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 onClick={(e) => { e.preventDefault(); handleNav('/about-us'); }}
               >
                 <i className="fa-solid fa-hospital-user"></i>
-                <span>About Us</span>
+                <span>About Us</span>
               </a>
             </li>
 
@@ -216,7 +216,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 style={{ fontWeight: 700, color: '#0047bb' }}
               >
                 <i className="fa-solid fa-capsules"></i>
-                <span>All Products</span>
+                <span>All Products</span>
               </a>
             </li>
 
@@ -238,7 +238,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 onClick={(e) => { e.preventDefault(); handleNav('/contact-us'); }}
               >
                 <i className="fa-solid fa-envelope"></i>
-                <span>Contact Us</span>
+                <span>Contact Us</span>
               </a>
             </li>
           </ul>
