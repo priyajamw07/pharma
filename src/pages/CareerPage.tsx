@@ -11,7 +11,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
     name: '',
     mobile: '',
     email: '',
-    role: 'Pharmaceutical Sales & Distribution Executive',
+    fieldOfInterest: 'Healthcare Product Distribution',
     experience: '1-3 Years',
     message: ''
   });
@@ -33,14 +33,14 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          type: 'Career Application',
+          type: 'Career / Talent Network Profile',
           name: formData.name,
           mobile: formData.mobile,
           email: formData.email,
-          role: formData.role,
+          fieldOfInterest: formData.fieldOfInterest,
           experience: formData.experience,
           message: formData.message,
-          _subject: `Career Application: ${formData.role} - ${formData.name}`,
+          _subject: `Career Profile Submission: ${formData.name} (${formData.mobile})`,
           company: COMPANY_INFO.name
         })
       });
@@ -48,14 +48,14 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        const subject = encodeURIComponent(`Career Application: ${formData.role} - ${formData.name}`);
-        const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nRole: ${formData.role}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
+        const subject = encodeURIComponent(`Career Profile Submission: ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nField: ${formData.fieldOfInterest}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
         window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
         setSubmitted(true);
       }
     } catch {
-      const subject = encodeURIComponent(`Career Application: ${formData.role} - ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nRole: ${formData.role}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
+      const subject = encodeURIComponent(`Career Profile Submission: ${formData.name}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nMobile: ${formData.mobile}\nEmail: ${formData.email}\nField: ${formData.fieldOfInterest}\nExperience: ${formData.experience}\nMessage: ${formData.message}`);
       window.location.href = `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitted(true);
     } finally {
@@ -73,94 +73,75 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
             <span className="section-eyebrow">
               <i className="fa-solid fa-briefcase"></i> Work With Us
             </span>
-            <h1 className="section-main-heading">Career Opportunities</h1>
+            <h1 className="section-main-heading">Career & Partner Opportunities</h1>
             <p className="section-sub-lead">
-              Join our growing healthcare product distribution network across Delhi NCR. We value integrity, dedication, and professional excellence.
+              Connect with our healthcare product distribution team in Delhi NCR. We welcome skilled individuals for future operational and sales opportunities.
             </p>
           </div>
 
           <div className="contact-grid">
-            {/* Left: Open Roles & Office Info */}
+            {/* Left: Future Opportunities & Talent Network */}
             <div className="contact-info-card">
-              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Current Openings</span>
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Talent Network</span>
               <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0f172a', marginBottom: '16px' }}>
-                Join Our Supply & Distribution Team
+                Future Opportunities
               </h3>
+              <p style={{ color: '#475569', fontSize: '14.5px', lineHeight: '1.65', marginBottom: '20px' }}>
+                There are currently no active job vacancies. However, we are continuously expanding our healthcare distribution and delivery coverage across Delhi NCR.
+              </p>
               <p style={{ color: '#475569', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
-                We are actively looking for energetic professionals to strengthen our healthcare product outreach and delivery network in Delhi NCR.
+                We invite prospective candidates and field executives to submit their profiles. When relevant opportunities open in pharmaceutical distribution, field relations, or logistics, our team will reach out directly.
               </p>
 
-              {/* Role Card 1 */}
-              <div className="career-role-box">
-                <div className="role-header">
-                  <h4 className="role-title">Sales & Distribution Executive</h4>
-                  <span className="role-type-pill">Delhi NCR</span>
-                </div>
-                <p className="role-desc">
-                  Build relationships with local pharmacies, stockists, and clinics for our 4 core formulations. Coordinate orders and ensure reliable fulfillment.
-                </p>
-                <div className="role-meta">
-                  <span><i className="fa-solid fa-user-check"></i> Field Experience: 1-3 Yrs</span>
-                  <span><i className="fa-solid fa-clock"></i> Full Time</span>
-                </div>
-              </div>
-
-              {/* Role Card 2 */}
-              <div className="career-role-box" style={{ marginTop: '16px' }}>
-                <div className="role-header">
-                  <h4 className="role-title">Operations & Delivery Coordinator</h4>
-                  <span className="role-type-pill">Delhi 110091</span>
-                </div>
-                <p className="role-desc">
-                  Manage inventory intake, temperature-controlled packaging, and dispatch routing for swift deliveries across the NCR region.
-                </p>
-                <div className="role-meta">
-                  <span><i className="fa-solid fa-box-archive"></i> Logistics & Dispatch</span>
-                  <span><i className="fa-solid fa-clock"></i> Full Time</span>
-                </div>
-              </div>
-
-              {/* Direct Resume Submission Note */}
-              <div style={{ marginTop: '24px', paddingTop: '20px', borderTop: '1px solid #e2e8f0' }}>
-                <h5 style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
-                  Prefer to Email Your CV Directly?
+              {/* Office & Direct Contact Details */}
+              <div style={{ background: '#f8fafc', padding: '18px', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '22px' }}>
+                <h5 style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
+                  <i className="fa-solid fa-location-dot" style={{ color: '#0047bb', marginRight: '6px' }}></i> Office Location
                 </h5>
-                <p style={{ fontSize: '13px', color: '#64748b', marginBottom: '10px' }}>
-                  Send your resume and profile directly to our recruitment desk at:
+                <p style={{ fontSize: '13px', color: '#475569', margin: 0, lineHeight: '1.5' }}>
+                  {COMPANY_INFO.address}
+                </p>
+              </div>
+
+              <div style={{ background: '#f8fafc', padding: '18px', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                <h5 style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
+                  <i className="fa-solid fa-envelope" style={{ color: '#0047bb', marginRight: '6px' }}></i> Direct CV Submission
+                </h5>
+                <p style={{ fontSize: '13px', color: '#475569', marginBottom: '8px' }}>
+                  You may also email your resume directly to our recruitment desk:
                 </p>
                 <a
-                  href={`mailto:${COMPANY_INFO.email}?subject=Job Application - ONE ETHICAL`}
+                  href={`mailto:${COMPANY_INFO.email}?subject=Resume Submission - ONE ETHICAL`}
                   style={{ color: '#0047bb', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}
                 >
-                  <i className="fa-regular fa-envelope" style={{ marginRight: '6px' }}></i>
                   {COMPANY_INFO.email}
                 </a>
               </div>
             </div>
 
-            {/* Right: Application Form */}
+            {/* Right: Profile Submission Form */}
             <div className="form-card">
-              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Quick Application</span>
+              <span className="section-eyebrow" style={{ color: '#0047bb' }}>Submit Profile</span>
               <h2 className="big-title" style={{ fontSize: '24px', marginBottom: '8px' }}>
-                Submit Your Profile
+                Share Your Details
               </h2>
               <p className="common-des" style={{ marginBottom: '20px' }}>
-                Fill out the application below. Submissions are delivered directly to <strong>{COMPANY_INFO.email}</strong>.
+                Submit your profile for upcoming openings. Delivered directly to <strong>{COMPANY_INFO.email}</strong>.
               </p>
 
               {submitted ? (
                 <div style={{ textAlign: 'center', padding: '36px 20px', background: '#f0fdf4', borderRadius: '10px' }}>
                   <i className="fa-solid fa-circle-check" style={{ fontSize: '44px', color: '#16a34a', marginBottom: '14px' }}></i>
-                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Application Received!</h3>
+                  <h3 style={{ color: '#166534', fontWeight: 700 }}>Profile Submitted Successfully!</h3>
                   <p style={{ color: '#15803d', marginTop: '8px' }}>
-                    Thank you, {formData.name}. Our recruitment team will review your application and connect with you shortly.
+                    Thank you, {formData.name}. Your details have been received at <strong>{COMPANY_INFO.email}</strong>. We will contact you when suitable opportunities arise.
                   </p>
                   <button
-                    onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', role: 'Pharmaceutical Sales & Distribution Executive', experience: '1-3 Years', message: '' }); }}
+                    onClick={() => { setSubmitted(false); setFormData({ name: '', mobile: '', email: '', fieldOfInterest: 'Healthcare Product Distribution', experience: '1-3 Years', message: '' }); }}
                     className="hero-btn-primary"
                     style={{ marginTop: '18px', fontSize: '13px', padding: '8px 20px' }}
                   >
-                    <span>Submit Another Application</span>
+                    <span>Submit Another Profile</span>
                   </button>
                 </div>
               ) : (
@@ -172,7 +153,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Your Name"
+                      placeholder="Your Full Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
@@ -209,14 +190,15 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <div className="form-group">
-                    <label>Role of Interest</label>
+                    <label>Area of Interest</label>
                     <select
                       className="form-control"
-                      value={formData.role}
-                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                      value={formData.fieldOfInterest}
+                      onChange={(e) => setFormData({ ...formData, fieldOfInterest: e.target.value })}
                     >
-                      <option value="Pharmaceutical Sales & Distribution Executive">Pharmaceutical Sales & Distribution Executive</option>
-                      <option value="Operations & Delivery Coordinator">Operations & Delivery Coordinator</option>
+                      <option value="Healthcare Product Distribution">Healthcare Product Distribution</option>
+                      <option value="Hospital & Chemist Outreach">Hospital & Chemist Outreach</option>
+                      <option value="Logistics & Dispatch Coordination">Logistics & Dispatch Coordination</option>
                       <option value="General Healthcare Operations">General Healthcare Operations</option>
                     </select>
                   </div>
@@ -240,7 +222,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     <textarea
                       className="form-control"
                       rows={3}
-                      placeholder="Tell us about your background, previous pharmaceutical sales, or logistics experience..."
+                      placeholder="Share brief notes on your background or field experience..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     ></textarea>
@@ -253,7 +235,7 @@ export const CareerPage: React.FC<CareerPageProps> = ({ onNavigate }) => {
                     disabled={submitting}
                   >
                     <span>
-                      {submitting ? 'Submitting Application...' : 'Send Application'}
+                      {submitting ? 'Submitting Details...' : 'Submit Profile'}
                       <i className="fa-solid fa-paper-plane" style={{ marginLeft: '6px' }}></i>
                     </span>
                   </button>

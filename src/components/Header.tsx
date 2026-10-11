@@ -37,22 +37,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSolutionsNav = () => {
-    setMobileMenuOpen(false);
-    if (currentPath === '/' || currentPath === '') {
-      const el = document.getElementById('solutions');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-    }
-    onNavigate('/#solutions');
-    setTimeout(() => {
-      const el = document.getElementById('solutions');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 150);
-  };
-
   return (
     <header className={`sticky-site-header ${isScrolled ? 'scrolled' : ''}`}>
       {/* Top Utility Contact Strip */}
@@ -128,16 +112,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 >
                   <i className="fa-solid fa-capsules" style={{ marginRight: '5px', color: '#0047bb' }}></i>
                   All Products
-                </a>
-              </li>
-
-              <li className="nav-item">
-                <a
-                  href="#solutions"
-                  className="nav-link"
-                  onClick={(e) => { e.preventDefault(); handleSolutionsNav(); }}
-                >
-                  Solutions
                 </a>
               </li>
 
@@ -249,17 +223,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               >
                 <i className="fa-solid fa-capsules"></i>
                 <span>All Products (4 Formulations)</span>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="#solutions"
-                className="mobile-nav-link"
-                onClick={(e) => { e.preventDefault(); handleSolutionsNav(); }}
-              >
-                <i className="fa-solid fa-kit-medical"></i>
-                <span>Healthcare Solutions</span>
               </a>
             </li>
 

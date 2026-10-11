@@ -129,11 +129,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Sub-Footer Copyright */}
         <div className="sub-footer-bar">
           <p className="copyright-text">
-            ? {new Date().getFullYear()} <strong>{COMPANY_INFO.name}</strong>. All Rights Reserved. Healthcare Product Distribution & Doorstep Delivery.
+            {'\u00A9'} {new Date().getFullYear()} <strong>{COMPANY_INFO.name}</strong>. All Rights Reserved. Healthcare Product Distribution & Doorstep Delivery.
           </p>
-          <p className="footer-note-text">
-            Disclaimer: We are an authorized distributor and delivery provider of healthcare products and do not manufacture medicines. All medicines should be taken under medical supervision.
-          </p>
+
         </div>
       </div>
     </footer>
