@@ -199,23 +199,28 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
             <div className="products-four-grid">
               {relatedProducts.map((rel) => (
-                <div key={rel.slug} className="product-card-modern">
-                  <div className="product-card-media">
-                    <span className="product-category-badge">{rel.categoryName}</span>
-                    <a
-                      href={`/products/${rel.slug}`}
-                      onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
-                      className="product-card-img-link"
-                    >
-                      <img
-                        src={rel.image}
-                        alt={rel.name}
-                        className="product-card-img-uncropped"
-                      />
-                    </a>
+                <div key={rel.slug} className="product-card-elevated product-card-modern">
+                  <div className="product-card-badge-row">
+                    <span className="badge-category">{rel.categoryName}</span>
+                    <span className="badge-status-in-stock">
+                      <i className="fa-solid fa-check"></i> In Stock
+                    </span>
                   </div>
 
-                  <div className="product-card-content">
+                  <div
+                    className="product-img-frame"
+                    onClick={() => onNavigate(`/products/${rel.slug}`)}
+                    style={{ cursor: 'pointer' }}
+                    title={`View details for ${rel.name}`}
+                  >
+                    <img
+                      src={rel.image}
+                      alt={rel.name}
+                      className="product-uncropped-img"
+                    />
+                  </div>
+
+                  <div className="product-card-body">
                     <h3 className="product-card-title">
                       <a
                         href={`/products/${rel.slug}`}
@@ -224,16 +229,32 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                         {rel.name}
                       </a>
                     </h3>
-                    <p className="product-card-desc">{rel.shortDesc}</p>
+                    <p className="product-card-short-desc">{rel.shortDesc}</p>
+
+                    {rel.packaging && (
+                      <div className="product-packaging-pill">
+                        <i className="fa-solid fa-boxes-packing"></i>
+                        <span>{rel.packaging}</span>
+                      </div>
+                    )}
 
                     <div className="product-card-actions">
                       <a
                         href={`/products/${rel.slug}`}
                         onClick={(e) => { e.preventDefault(); onNavigate(`/products/${rel.slug}`); }}
-                        className="btn-card-details"
+                        className="btn-card-view"
                       >
                         <span>View Details</span>
                         <i className="fa-solid fa-arrow-right"></i>
+                      </a>
+
+                      <a
+                        href={`tel:${COMPANY_INFO.phone}`}
+                        className="btn-card-call-order"
+                        title="Direct phone order"
+                      >
+                        <i className="fa-solid fa-phone"></i>
+                        <span>Order</span>
                       </a>
                     </div>
                   </div>
