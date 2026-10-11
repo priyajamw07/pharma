@@ -34,9 +34,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Column 2: Our 4 Products */}
+          {/* Column 2: All Products */}
           <div className="footer-col">
-            <h4 className="footer-heading">Our 4 Products</h4>
+            <h4 className="footer-heading">All Products</h4>
             <ul className="footer-links-list">
               {PRODUCTS.map(p => (
                 <li key={p.slug}>
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a href="/products" onClick={(e) => { e.preventDefault(); handleNav('/products'); }}>
-                  All 4 Products
+                  All Products
                 </a>
               </li>
               <li>

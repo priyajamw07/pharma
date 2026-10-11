@@ -192,7 +192,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={(e) => { e.preventDefault(); onNavigate('/products'); }}
                 className="theme-link-btn"
               >
-                <span>All 4 Products</span>
+                <span>All Products</span>
                 <i className="fa-solid fa-arrow-right"></i>
               </a>
             </div>

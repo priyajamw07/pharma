@@ -39,19 +39,19 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
   return (
     <header className={`sticky-site-header ${isScrolled ? 'scrolled' : ''}`}>
-      {/* Top Utility Contact Strip */}
+      {/* Top Utility Contact Strip - Single Line */}
       <div className="header-top-bar">
         <div className="container header-top-inner">
           <div className="top-badge">
-            <i className="fa-solid fa-truck-medical" style={{ marginRight: '6px', color: '#0d9488' }}></i>
-            <span>Authorized Healthcare Product Distributor & Prompt Delivery Across Delhi NCR</span>
+            <i className="fa-solid fa-truck-medical"></i>
+            <span>Authorized Healthcare Product Distributor • Prompt Delivery Across Delhi NCR</span>
           </div>
           <div className="top-contacts">
             <a href={`tel:${COMPANY_INFO.phone}`} className="top-contact-link">
               <i className="fa-solid fa-phone"></i>
               <span>{COMPANY_INFO.phone}</span>
             </a>
-            <span className="contact-divider">?</span>
+            <span className="contact-divider">•</span>
             <a href={`mailto:${COMPANY_INFO.email}`} className="top-contact-link">
               <i className="fa-regular fa-envelope"></i>
               <span>{COMPANY_INFO.email}</span>
@@ -60,10 +60,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
         </div>
       </div>
 
-      {/* Main Sticky Navigation */}
+      {/* Main Sticky Navigation - All in ONE Single Horizontal Line */}
       <div className="navbar-main">
         <div className="container navbar-inner">
-          {/* Brand Logo */}
+          {/* Brand Logo & Name in ONE line */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); handleNav('/'); }}
@@ -75,13 +75,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               alt={COMPANY_INFO.name}
               className="navbar-logo-img"
             />
-            <div className="navbar-brand-text">
-              <span className="brand-title">{COMPANY_INFO.name}</span>
-              <span className="brand-subtitle">{COMPANY_INFO.tagline}</span>
-            </div>
+            <span className="brand-title">{COMPANY_INFO.name}</span>
           </a>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links in ONE line */}
           <nav className="desktop-nav" aria-label="Main Navigation">
             <ul className="nav-menu">
               <li className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>
@@ -110,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                   className="nav-link highlight-link"
                   onClick={(e) => { e.preventDefault(); handleNav('/products'); }}
                 >
-                  <i className="fa-solid fa-capsules" style={{ marginRight: '5px', color: '#0047bb' }}></i>
+                  <i className="fa-solid fa-capsules" style={{ marginRight: '6px' }}></i>
                   All Products
                 </a>
               </li>
@@ -137,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             </ul>
           </nav>
 
-          {/* Right Action: Call to Order button */}
+          {/* Right Action: Call to Order button in ONE line */}
           <div className="header-right-actions">
             <a
               href={`tel:${COMPANY_INFO.phone}`}
@@ -145,10 +142,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               title="Call for product order and delivery"
             >
               <i className="fa-solid fa-phone-volume"></i>
-              <div className="btn-call-text">
-                <span className="btn-label">Order & Delivery</span>
-                <span className="btn-phone">{COMPANY_INFO.phone}</span>
-              </div>
+              <span className="btn-call-inline">Order: {COMPANY_INFO.phone}</span>
             </a>
 
             {/* Mobile Menu Hamburger Toggle */}
@@ -222,7 +216,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                 style={{ fontWeight: 700, color: '#0047bb' }}
               >
                 <i className="fa-solid fa-capsules"></i>
-                <span>All Products (4 Formulations)</span>
+                <span>All Products</span>
               </a>
             </li>
 

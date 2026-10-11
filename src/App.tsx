@@ -33,7 +33,7 @@ export const App: React.FC = () => {
     } else if (path === '/about-us') {
       document.title = `About Us | ${COMPANY_INFO.name}`;
     } else if (path === '/products') {
-      document.title = `All 4 Products | ${COMPANY_INFO.name}`;
+      document.title = `All Products | ${COMPANY_INFO.name}`;
     } else if (path.startsWith('/products/')) {
       const slug = path.replace('/products/', '');
       const prod = PRODUCTS.find(p => p.slug === slug);

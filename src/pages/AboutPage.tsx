@@ -18,9 +18,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <div className="about-visual-column">
               <div className="hero-image-frame">
                 <img
-                  src="/one_assets/cartoon-doctors-hero1.jpg"
+                  src="/one_assets/pro-doctors-hero1.jpg"
                   alt="ONE ETHICAL PHARMACEUTICAL Healthcare Team"
-                  className="hero-cartoon-image"
+                  className="hero-real-doctor-image"
                 />
                 <div className="hero-image-tag">
                   <i className="fa-solid fa-truck-medical"></i>
@@ -40,7 +40,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 <strong>{COMPANY_INFO.name}</strong> is a dedicated healthcare product distribution and doorstep delivery enterprise based in Delhi NCR, operating under the principle of <em>"{COMPANY_INFO.tagline}"</em>.
               </p>
               <p className="section-body-text">
-                We are <strong>not manufacturers</strong>; our core specialty is the rigorous sourcing, stock keeping, and prompt delivery of four proven healthcare formulations. We bridge the critical gap between certified pharmaceutical producers and local healthcare providers, retail chemists, and end patients.
+                We are <strong>not manufacturers</strong>; our core specialty is the rigorous sourcing, stock keeping, and prompt delivery of proven healthcare formulations. We bridge the critical gap between certified pharmaceutical producers and local healthcare providers, retail chemists, and end patients.
               </p>
               <p className="section-body-text">
                 Every consignment we distribute is authenticated through licensed distribution channels with full batch traceability, tamper-evident seals, and climate-conscious handling.
@@ -50,7 +50,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 <div className="metric-box">
                   <div className="metric-icon"><i className="fa-solid fa-box-open"></i></div>
                   <div className="metric-info">
-                    <h4>4 Proven Formulations</h4>
+                    <h4>Proven Formulations</h4>
                     <p>Curated portfolio meeting high clinical standards</p>
                   </div>
                 </div>
@@ -114,9 +114,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         <div className="container">
           <div className="section-header-center">
             <span className="section-eyebrow">
-              <i className="fa-solid fa-capsules"></i> Our Four Formulations
+              <i className="fa-solid fa-capsules"></i> Our Healthcare Products
             </span>
-            <h2 className="section-main-heading">The Products We Deliver</h2>
+            <h2 className="section-main-heading">Our Healthcare Products</h2>
             <p className="section-sub-lead">
               Click any product to view its complete composition, usage guidance, and delivery availability.
             </p>

@@ -23,7 +23,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       alt: 'Experience and expertise to tackle urgent medical needs - One Ethical Pharmaceutical',
       ctaText: 'Contact Now',
       ctaLink: '/contact-us',
-      secText: 'All 4 Products',
+      secText: 'All Products',
       secLink: '/products',
       themeClass: 'theme-blush'
     },
@@ -59,7 +59,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       alt: 'Daily vitality and active lifestyle nutrition',
       ctaText: 'Contact Now',
       ctaLink: '/contact-us',
-      secText: 'All 4 Products',
+      secText: 'All Products',
       secLink: '/products',
       themeClass: 'theme-blush'
     }
@@ -254,7 +254,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <div className="metric-box">
                   <div className="metric-icon"><i className="fa-solid fa-capsules"></i></div>
                   <div className="metric-info">
-                    <h4>4 Essential Products</h4>
+                    <h4>Essential Formulations</h4>
                     <p>Curated portfolio of high-efficacy therapies</p>
                   </div>
                 </div>
@@ -318,7 +318,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* =========================================================
-          3. OUR 4 PRODUCTS SECTION ? STRICTLY 4 PRODUCTS ONLY
+          3. ALL PRODUCTS SECTION
       ========================================================= */}
       <section className="section-padding bg-slate-subtle" id="products-range">
         <div className="container">
@@ -326,9 +326,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <span className="section-eyebrow">
               <i className="fa-solid fa-pills"></i> Available for Immediate Order
             </span>
-            <h2 className="section-main-heading">Our 4 Core Healthcare Products</h2>
+            <h2 className="section-main-heading">Our Healthcare Products</h2>
             <p className="section-sub-lead">
-              We stock and deliver four essential, scientifically formulated healthcare therapies. Each product is delivered in its original ethical packaging with full batch traceability.
+              We stock and deliver essential, scientifically formulated healthcare therapies. Each product is delivered in its original ethical packaging with full batch traceability.
             </p>
           </div>
 
@@ -410,7 +410,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="btn-all-products-banner"
             >
               <i className="fa-solid fa-boxes-stacked"></i>
-              <span>View All 4 Products & Formulations</span>
+              <span>View All Products & Formulations</span>
               <i className="fa-solid fa-arrow-right"></i>
             </a>
           </div>
@@ -418,7 +418,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* =========================================================
-          4. SOLUTIONS SECTION ? DIRECTLY MAPPED TO THE 4 PRODUCTS
+          4. HEALTHCARE SOLUTIONS SECTION
       ========================================================= */}
       <section className="section-padding solutions-section" id="solutions">
         <div className="container">
@@ -428,7 +428,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </span>
             <h2 className="section-main-heading">Healthcare Solutions We Deliver</h2>
             <p className="section-sub-lead">
-              Our 4 formulations address vital clinical needs, from cellular cardiovascular vitality and broad-spectrum bacterial treatment to dual infection defense and iron restorative care.
+              Our healthcare formulations address vital clinical needs, from cellular cardiovascular vitality and broad-spectrum bacterial treatment to dual infection defense and iron restorative care.
             </p>
           </div>
 
@@ -578,7 +578,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <span className="pulse-beacon"></span>
                 <span>Immediate Delivery In Delhi NCR</span>
               </div>
-              <h2>Need Any of Our 4 Healthcare Formulations?</h2>
+              <h2>Need Any of Our Healthcare Formulations?</h2>
               <p>
                 Place your order directly via phone or submit an order inquiry online. Our dispatch team is ready to deliver authentic healthcare products promptly to your doorstep.
               </p>

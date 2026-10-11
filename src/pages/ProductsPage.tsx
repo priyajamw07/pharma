@@ -32,7 +32,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             </span>
             <h1 className="section-main-heading">All Healthcare Products</h1>
             <p className="section-sub-lead">
-              Explore our complete portfolio of four proven formulations. We ensure safe, temperature-controlled doorstep delivery across Delhi NCR.
+              Explore our complete portfolio of proven formulations. We ensure safe, temperature-controlled doorstep delivery across Delhi NCR.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
             ))}
           </div>
 
-          {/* 4 Products Grid */}
+          {/* Products Grid */}
           <div className="products-four-grid">
             {filteredProducts.map((product) => (
               <div key={product.slug} className="product-card-modern">
